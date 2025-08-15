@@ -1,37 +1,8 @@
 <template>
-  <LoadingScreen />
-  <div class="app-area">
-    <component :is="layoutComponent" />
+  <div id="app">
+    <router-view />
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed, onMounted } from "vue";
-import { useRoute } from "vue-router";
-import HomeView from "@/components/views/HomeView.vue";
-import LoginView from "@/components/views/LoginView.vue";
-import LoadingScreen from "@/components/common/LoadingScreen.vue";
-import { useAuthStore } from "@/stores/auth";
-import { useApiStore } from "@/stores/api";
-import { useLoadingStore } from "@/stores/loading";
-
-const route = useRoute();
-const authStore = useAuthStore();
-const apiStore = useApiStore();
-const loadingStore = useLoadingStore();
-
-const layoutComponent = computed(() => {
-  return route.path === "/login" ? LoginView : HomeView
-});
-
-onMounted(async () => {
-  loadingStore.isLoading = true;
-  authStore.checkAuthentication();
-  apiStore.configureAxios();
-  await apiStore.fetchData();
-  loadingStore.isLoading = false;
-});
-</script>
 
 <style>
 * {

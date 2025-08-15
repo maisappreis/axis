@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: process.env.NODE_ENV === "production" ? "" : "/upfit-gym/",
+  base: process.env.NODE_ENV === "production" ? "" : "/axis-3D/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url))
