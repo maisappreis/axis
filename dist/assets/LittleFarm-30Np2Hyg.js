@@ -1,1 +1,0 @@
-import{_ as t,c as o,a as n,F as r,o as a}from"./index-D0kC7SCT.js";const l={};function s(m,e){return a(),o(r,null,[e[0]||(e[0]=n("h1",null,"Fazendinha",-1)),e[1]||(e[1]=n("h3",null," Convite modelo ",-1))],64)}const d=t(l,[["render",s]]);export{d as default};
