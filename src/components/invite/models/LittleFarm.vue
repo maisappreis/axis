@@ -342,8 +342,8 @@ onMounted(() => {
 /* Presente */
 
 .gift {
-  position: fixed;
-  bottom: 150px;
+  position: absolute;
+  bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
@@ -363,7 +363,7 @@ onMounted(() => {
   animation: swing 2s infinite ease-in-out;
 }
 
-/* Modal de sugestão do presente */
+/* Modal */
 
 .modal-overlay {
   position: fixed;
@@ -389,7 +389,7 @@ onMounted(() => {
   margin-top: 20px;
   padding: 20px;
   text-align: center;
-  width: 15vw;
+  width: 30vw;
   height: fit-content; 
 }
 
