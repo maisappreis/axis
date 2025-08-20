@@ -21,14 +21,28 @@
 
     <div class="flex-row">
       <h2 class="day circle-text">
-        <span>13/09</span>
+        <span>06/12</span>
       </h2>
       <h2 class="time circle-text">
-        <span>11:00</span>
+        <span>10:00</span>
       </h2>
     </div>
+    <p>Confirme sua presenta até o dia 22/11</p>
 
-    <div @click="localModalIsOpen = !localModalIsOpen">
+    <button class="button"
+      @click="localModalIsOpen = !localModalIsOpen">
+      <!-- <font-awesome-icon
+          icon="fa-solid fa-location-dot"
+          class="table-icon"
+        /> -->
+      Ver local do evento
+    </button>
+    <button class="button" style="margin-top: 7px;"
+      @click="localModalIsOpen = !localModalIsOpen">
+      Confirmar presença
+    </button>
+
+    <!-- <div @click="localModalIsOpen = !localModalIsOpen">
       <h3 class="flex-row">
         <font-awesome-icon
           icon="fa-solid fa-location-dot"
@@ -36,8 +50,8 @@
         />
         Clique para ver o local
       </h3>
-      <p>Confirme sua presenta até o dia 01/09</p>
-    </div>
+    </div> -->
+
     <div v-if="localModalIsOpen" class="modal-overlay">
       <div class="modal">
         <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
@@ -215,7 +229,7 @@ onMounted(() => {
 
 .circle-text {
   width: 120px;
-  height: 80px;
+  height: 60px;
   border-radius: 50%;
   background: #ce8ec4;
   display: grid;
@@ -343,7 +357,7 @@ onMounted(() => {
 
 .gift {
   position: absolute;
-  bottom: 15%;
+  bottom: 13%;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
@@ -379,7 +393,7 @@ onMounted(() => {
   position: relative;
   background: rgb(254, 230, 247);
   border-radius: 12px;
-  /* border: 6px solid #ce8ec4; */
+  border: 6px solid #ce8ec4;
   padding: 20px;
   text-align: center;
   z-index: 10;
@@ -389,7 +403,7 @@ onMounted(() => {
   margin-top: 20px;
   padding: 20px;
   text-align: center;
-  width: 30vw;
+  width: 50vw;
   height: fit-content; 
 }
 
