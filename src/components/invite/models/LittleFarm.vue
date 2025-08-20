@@ -1,9 +1,11 @@
 <template>
+  <!-- Tema Fazendinha -->
   <div class="invite-container">
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
     <div id="star-container"></div>
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
-     <!-- Tema Fazendinha -->
 
     <h3 class="title">
       Chá de Bebê da
@@ -57,10 +59,29 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const goToInvite = () => router.push("/invite");
 
-onMounted(() => {
-  const container = document.getElementById("star-container");
+const changeBackground = () => {
+  const bg1 = document.querySelector(".bg1") as HTMLElement | null;
+  const bg2 = document.querySelector(".bg2") as HTMLElement | null;;
 
-  console.log('container', container)
+  let showingBg1 = true;
+
+  setInterval(() => {
+    if(bg1 && bg2) {
+      if (showingBg1) {
+        bg1.style.opacity = "0";
+        bg2.style.opacity = "1";
+      } else {
+        bg1.style.opacity = "1";
+        bg2.style.opacity = "0";
+      }
+    }
+    
+    showingBg1 = !showingBg1;
+  }, 3000); // Altera a cada 3 segundos
+};
+
+const makeLittleStars = () => {
+  const container = document.getElementById("star-container");
   if (!container) return;
 
   for (let i = 0; i < 50; i++) {
@@ -81,6 +102,11 @@ onMounted(() => {
 
     container.appendChild(star);
   }
+}
+
+onMounted(() => {
+  changeBackground();
+  makeLittleStars();
 });
 </script>
 
@@ -89,14 +115,34 @@ onMounted(() => {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background-image: url('@/assets/fazendinha.png');
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+}
+
+.bg1 {
+  background-image: url('@/assets/fazendinha-1.png');
+  opacity: 1;
+  z-index: -2;
+}
+
+.bg2 {
+  background-image: url('@/assets/fazendinha-2.png');
+  opacity: 0;
+  z-index: -1;
 }
 
 .flex-row {
