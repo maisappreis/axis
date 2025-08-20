@@ -6,6 +6,7 @@
     <div id="star-container"></div>
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
+    <img src="@/assets/gift.png" alt="Presente" class="gift" @click="openModal" />
 
     <h3 class="title">
       Chá de Bebê da
@@ -37,11 +38,25 @@
       </h2>
       <p>Confirme sua presenta até o dia 01/09</p>
     </div>
+    <!--
     <div class="gift">
-      <h3>
-        Sugestão de presente
-      </h3>
+      <p>Sua presença é o nosso maior presente! 🎁</p>
+      <p>Mas caso queira presentear, nossa sugestão é:</p>
       <h4>Fraldas Pompers tamanho M</h4>
+      <h4>Fraldas Pompers tamanho M</h4>
+    </div>
+    -->
+    <div v-if="isModalOpen" class="modal-overlay">
+    <div class="modal">
+      <span class="close" @click="openModal" >
+        &times;
+      </span>
+      <div class="modal-content">
+        <p>Sua presença é o nosso maior presente! 🎁</p>
+        <p>Mas caso queira presentear, nossa sugestão é:</p>
+        <h4>Fraldas Pompers tamanho M</h4>
+      </div>
+    </div>
     </div>
 
     <div class="footer flex-column">
@@ -54,10 +69,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const goToInvite = () => router.push("/invite");
+
+const isModalOpen = ref(false);
+
+const openModal = () => {
+  isModalOpen.value = !isModalOpen.value;
+};
 
 const changeBackground = () => {
   const bg1 = document.querySelector(".bg1") as HTMLElement | null;
@@ -102,7 +123,7 @@ const makeLittleStars = () => {
 
     container.appendChild(star);
   }
-}
+};
 
 onMounted(() => {
   changeBackground();
@@ -186,13 +207,13 @@ onMounted(() => {
   color: white;
 }
 
-.gift {
+/* .gift {
   padding: 10px;
   width: 150px;
   border-radius: 10px;
   border: 4px solid #ce8ec4;
   background-color: white;
-}
+} */
 
 .footer {
   position: absolute;
@@ -285,5 +306,67 @@ onMounted(() => {
   to {
     transform: translateX(-300px);
   }
+}
+
+/* Presente */
+
+.gift {
+  position: fixed;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+@keyframes swing {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  25%  { transform: translateX(-50%) rotate(15deg); }
+  50%  { transform: translateX(-50%) rotate(0deg); }
+  75%  { transform: translateX(-50%) rotate(-15deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.gift {
+  animation: swing 2s infinite ease-in-out;
+}
+
+/* Modal de sugestão do presente */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+.modal {
+  position: relative;
+  background: rgb(254, 230, 247);
+  border-radius: 12px;
+  /* border: 6px solid #ce8ec4; */
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.modal-content {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 15vw;
+  height: fit-content; 
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }
 </style>
