@@ -6,7 +6,7 @@
     <div id="star-container"></div>
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
-    <img src="@/assets/gift.png" alt="Presente" class="gift" @click="openModal" />
+    <img src="@/assets/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
     <h3 class="title">
       Chá de Bebê da
@@ -28,15 +28,33 @@
       </h2>
     </div>
 
-    <div>
-      <h2 class="flex-row">
+    <div @click="localModalIsOpen = !localModalIsOpen">
+      <h3 class="flex-row">
         <font-awesome-icon
           icon="fa-solid fa-location-dot"
           class="table-icon"
         />
-        Local: Minha Casa
-      </h2>
+        Clique para ver o local
+      </h3>
       <p>Confirme sua presenta até o dia 01/09</p>
+    </div>
+    <div v-if="localModalIsOpen" class="modal-overlay">
+      <div class="modal">
+        <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
+          &times;
+        </span>
+        <div class="modal-content">
+          <h3 style="margin-top: 0;">
+            O evento será na NOSSA CASA!
+          </h3>
+          <p>Rua Libero Joaquim Pierini, s/n</p>
+          <p>Bairro Coloninha Zilli</p>
+          <p>Criciúma</p>
+          <button class="button">
+            Ver no mapa
+          </button>
+        </div>
+      </div>
     </div>
     <!--
     <div class="gift">
@@ -46,17 +64,17 @@
       <h4>Fraldas Pompers tamanho M</h4>
     </div>
     -->
-    <div v-if="isModalOpen" class="modal-overlay">
-    <div class="modal">
-      <span class="close" @click="openModal" >
-        &times;
-      </span>
-      <div class="modal-content">
-        <p>Sua presença é o nosso maior presente! 🎁</p>
-        <p>Mas caso queira presentear, nossa sugestão é:</p>
-        <h4>Fraldas Pompers tamanho M</h4>
+    <div v-if="giftModalIsOpen" class="modal-overlay">
+      <div class="modal">
+        <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
+          &times;
+        </span>
+        <div class="modal-content">
+          <p>Sua presença é o nosso maior presente! 🎁</p>
+          <p>Mas caso queira presentear, nossa sugestão é:</p>
+          <h4>Fraldas Pompers tamanho M</h4>
+        </div>
       </div>
-    </div>
     </div>
 
     <div class="footer flex-column">
@@ -74,11 +92,8 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const goToInvite = () => router.push("/invite");
 
-const isModalOpen = ref(false);
-
-const openModal = () => {
-  isModalOpen.value = !isModalOpen.value;
-};
+const giftModalIsOpen = ref(false);
+const localModalIsOpen = ref(false);
 
 const changeBackground = () => {
   const bg1 = document.querySelector(".bg1") as HTMLElement | null;
@@ -176,8 +191,9 @@ onMounted(() => {
 }
 
 .title {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 5px 0;
+  font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 0;
   z-index: 2;
 }
 
@@ -205,6 +221,7 @@ onMounted(() => {
   display: grid;
   place-items: center;
   color: white;
+  margin: 5px 10px;
 }
 
 /* .gift {
@@ -263,6 +280,20 @@ onMounted(() => {
     opacity: 1;
     transform: scale(1.3);
   }
+}
+
+.button {
+  padding: 10px;
+  background-color: rgb(124, 0, 106);
+  color: white;
+  font-size: 15px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(174, 80, 160);
 }
 
 /* Nuvens se movimentando */
