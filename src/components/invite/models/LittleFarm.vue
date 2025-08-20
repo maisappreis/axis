@@ -1,6 +1,8 @@
 <template>
   <div class="invite-container">
     <div id="star-container"></div>
+    <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
+    <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
      <!-- Tema Fazendinha -->
 
     <h3 class="title">
@@ -8,7 +10,7 @@
     </h3>
     <h1 class="kid-name">Maitê</h1>
 
-    <p>
+    <p style="z-index: 2;">
       Estamos super felizes com a <br>
       chegada da nossa bebê e <br>
       queremos comemorar com você!
@@ -31,7 +33,7 @@
         />
         Local: Minha Casa
       </h2>
-      <p>Clique para ver localização no mapa</p>
+      <p>Confirme sua presenta até o dia 01/09</p>
     </div>
     <div class="gift">
       <h3>
@@ -84,7 +86,7 @@ onMounted(() => {
 
 <style>
 .invite-container {
-  position: relative; /* importante: vira referência para as estrelas */
+  position: relative;
   min-height: 100vh;
   width: 100%;
   background-image: url('@/assets/fazendinha.png');
@@ -94,7 +96,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* evita scroll com estrelas */
+  overflow: hidden;
 }
 
 .flex-row {
@@ -109,6 +111,7 @@ onMounted(() => {
 .title {
   font-family: Arial, Helvetica, sans-serif;
   margin: 5px 0;
+  z-index: 2;
 }
 
 .kid-name {
@@ -116,10 +119,7 @@ onMounted(() => {
   font-size: 80px;
   margin: 0;
   color: rgb(124, 0, 106);
-}
-
-.kid-name:hover {
-  font-size: 100px;
+  z-index: 2;
 }
 
 .day {
@@ -140,23 +140,12 @@ onMounted(() => {
   color: white;
 }
 
-.circle-text:hover {
-  width: 150px;
-  background: #c264b4;
-}
-
 .gift {
   padding: 10px;
   width: 150px;
   border-radius: 10px;
   border: 4px solid #ce8ec4;
   background-color: white;
-}
-
-.gift:hover {
-  border: 4px solid #ffffff;
-  background-color: rgb(176, 88, 163);
-  color: white;
 }
 
 .footer {
@@ -172,7 +161,7 @@ onMounted(() => {
   cursor: pointer;
 }
 
-/* Estrelas ao fundo */
+/* Estrelas piscando ao fundo */
 
 .sky {
   position: relative;
@@ -184,8 +173,8 @@ onMounted(() => {
 
 #star-container {
   position: absolute;
-  inset: 0; /* ocupa toda a tela */
-  z-index: 1; /* fica acima do fundo, mas abaixo do conteúdo */
+  inset: 0;
+  z-index: 1;
   pointer-events: none; /* não atrapalha clique */
 }
 
@@ -206,6 +195,49 @@ onMounted(() => {
   50% {
     opacity: 1;
     transform: scale(1.3);
+  }
+}
+
+/* Nuvens se movimentando */
+
+.cloud {
+  position: absolute;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cloud-one {
+  top: 6%;
+  right: 30%;
+  width: 250px;
+  animation: moveCloudLeft 40s linear infinite alternate;
+}
+
+.cloud-two {
+  top: 20%;
+  left: 30%;
+  width: 200px;
+  animation: moveCloudRight 40s linear infinite alternate;
+}
+
+/* Esquerda → Direita */
+@keyframes moveCloudRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300px);
+  }
+}
+
+/* Direita → Esquerda */
+@keyframes moveCloudLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-300px);
   }
 }
 </style>
