@@ -26,7 +26,9 @@
         <span>10:00</span>
       </h2>
     </div>
-    <p>Confirme sua presenta até o dia 22/11</p>
+    <p style="width: 200px; margin: 20px;">
+      Confirme sua presenta até o dia 22/11
+    </p>
 
     <!-- Botões -->
     <button class="button"
@@ -229,6 +231,7 @@ onMounted(() => {
 /* Circulos alternando de cor a cada segundo */
 
 .circle-text {
+  margin: 0 10px;
   width: 120px;
   height: 80px;
   border-radius: 50%;
