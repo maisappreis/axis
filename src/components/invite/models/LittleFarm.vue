@@ -27,7 +27,7 @@
           <span>10:00</span>
         </h2>
       </div>
-      <p style="width: 200px; margin: 20px;">
+      <p style="width: 200px; margin: 10px 0 20px 0;">
         Confirme sua presenta até o dia 22/11
       </p>
 
@@ -165,7 +165,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
 .bg {
