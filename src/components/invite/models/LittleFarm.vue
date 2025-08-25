@@ -213,17 +213,6 @@ onMounted(() => {
   margin-left: 10px;
 }
 
-.circle-text {
-  width: 120px;
-  height: 60px;
-  border-radius: 50%;
-  background: #ce8ec4;
-  display: grid;
-  place-items: center;
-  color: white;
-  margin: 5px 10px;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -235,6 +224,24 @@ onMounted(() => {
   background-color: rgb(45, 45, 45);
   color: white;
   cursor: pointer;
+}
+
+/* Circulos alternando de cor a cada segundo */
+
+.circle-text {
+  width: 120px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  animation: changeColor 2s infinite alternate;
+}
+
+@keyframes changeColor {
+  0%   { background-color: #ce8ec4; }
+  50%  { background-color: #ffb347; }
+  100% { background-color: #6ec6ff; }
 }
 
 /* Estrelas piscando ao fundo */
