@@ -8,9 +8,7 @@
     <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
     <img src="@/assets/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
-    <h3 class="title">
-      Chá de Bebê da
-    </h3>
+    <h3 class="title">Chá de Bebê da</h3>
     <h1 class="kid-name">Maitê</h1>
 
     <p style="z-index: 2;">
@@ -19,6 +17,7 @@
       queremos comemorar com você!
     </p>
 
+    <!-- Dia e Horário -->
     <div class="flex-row">
       <h2 class="day circle-text">
         <span>06/12</span>
@@ -29,29 +28,17 @@
     </div>
     <p>Confirme sua presenta até o dia 22/11</p>
 
+    <!-- Botões -->
     <button class="button"
       @click="localModalIsOpen = !localModalIsOpen">
-      <!-- <font-awesome-icon
-          icon="fa-solid fa-location-dot"
-          class="table-icon"
-        /> -->
       Ver local do evento
     </button>
     <button class="button" style="margin-top: 7px;"
-      @click="localModalIsOpen = !localModalIsOpen">
+      @click="confirmAttendance">
       Confirmar presença
     </button>
 
-    <!-- <div @click="localModalIsOpen = !localModalIsOpen">
-      <h3 class="flex-row">
-        <font-awesome-icon
-          icon="fa-solid fa-location-dot"
-          class="table-icon"
-        />
-        Clique para ver o local
-      </h3>
-    </div> -->
-
+    <!-- Modal do local do evento -->
     <div v-if="localModalIsOpen" class="modal-overlay">
       <div class="modal">
         <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
@@ -70,14 +57,8 @@
         </div>
       </div>
     </div>
-    <!--
-    <div class="gift">
-      <p>Sua presença é o nosso maior presente! 🎁</p>
-      <p>Mas caso queira presentear, nossa sugestão é:</p>
-      <h4>Fraldas Pompers tamanho M</h4>
-      <h4>Fraldas Pompers tamanho M</h4>
-    </div>
-    -->
+
+    <!-- Modal do presente -->
     <div v-if="giftModalIsOpen" class="modal-overlay">
       <div class="modal">
         <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
@@ -91,6 +72,7 @@
       </div>
     </div>
 
+    <!-- rodape -->
     <div class="footer flex-column">
       <a @click="goToInvite">
         Precisando de um convite digital?
@@ -108,6 +90,10 @@ const goToInvite = () => router.push("/invite");
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+
+const confirmAttendance = () => {
+  window.location.href = "https://www.cutt.ly/WhatsApp-Axis3D";
+};
 
 const changeBackground = () => {
   const bg1 = document.querySelector(".bg1") as HTMLElement | null;
@@ -238,14 +224,6 @@ onMounted(() => {
   margin: 5px 10px;
 }
 
-/* .gift {
-  padding: 10px;
-  width: 150px;
-  border-radius: 10px;
-  border: 4px solid #ce8ec4;
-  background-color: white;
-} */
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -357,7 +335,7 @@ onMounted(() => {
 
 .gift {
   position: absolute;
-  bottom: 13%;
+  bottom: 10vh;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
