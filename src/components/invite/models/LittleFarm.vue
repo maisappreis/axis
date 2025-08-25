@@ -5,9 +5,9 @@
       <div class="bg bg1"></div>
       <div class="bg bg2"></div>
       <div id="star-container"></div>
-      <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
-      <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
-      <img src="@/assets/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <img src="@/assets/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-one" />
+      <img src="@/assets/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-two" />
+      <img src="@/assets/LittleFarm/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h3 class="title">Chá de Bebê da</h3>
       <h1 class="kid-name">Maitê</h1>
@@ -180,13 +180,13 @@ onMounted(() => {
 }
 
 .bg1 {
-  background-image: url('@/assets/fazendinha-1.png');
+  background-image: url('@/assets/LittleFarm/fazendinha-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/fazendinha-2.png');
+  background-image: url('@/assets/LittleFarm/fazendinha-2.png');
   opacity: 0;
   z-index: -1;
 }
