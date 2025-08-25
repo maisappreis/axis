@@ -1,85 +1,87 @@
 <template>
   <!-- Tema Fazendinha -->
   <div class="invite-container">
-    <div class="bg bg1"></div>
-    <div class="bg bg2"></div>
-    <div id="star-container"></div>
-    <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
-    <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
-    <img src="@/assets/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+    <div class="invite-content">
+      <div class="bg bg1"></div>
+      <div class="bg bg2"></div>
+      <div id="star-container"></div>
+      <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-one" />
+      <img src="@/assets/cloud.png" alt="cloud" class="cloud cloud-two" />
+      <img src="@/assets/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
-    <h3 class="title">Chá de Bebê da</h3>
-    <h1 class="kid-name">Maitê</h1>
+      <h3 class="title">Chá de Bebê da</h3>
+      <h1 class="kid-name">Maitê</h1>
 
-    <p style="z-index: 2;">
-      Estamos super felizes com a <br>
-      chegada da nossa bebê e <br>
-      queremos comemorar com você!
-    </p>
+      <p style="z-index: 2;">
+        Estamos super felizes com a <br>
+        chegada da nossa bebê e <br>
+        queremos comemorar com você!
+      </p>
 
-    <!-- Dia e Horário -->
-    <div class="flex-row">
-      <h2 class="day circle-text">
-        <span>06/12</span>
-      </h2>
-      <h2 class="time circle-text">
-        <span>10:00</span>
-      </h2>
-    </div>
-    <p style="width: 200px; margin: 20px;">
-      Confirme sua presenta até o dia 22/11
-    </p>
+      <!-- Dia e Horário -->
+      <div class="flex-row">
+        <h2 class="day circle-text">
+          <span>06/12</span>
+        </h2>
+        <h2 class="time circle-text">
+          <span>10:00</span>
+        </h2>
+      </div>
+      <p style="width: 200px; margin: 20px;">
+        Confirme sua presenta até o dia 22/11
+      </p>
 
-    <!-- Botões -->
-    <button class="button"
-      @click="localModalIsOpen = !localModalIsOpen">
-      Ver local do evento
-    </button>
-    <button class="button" style="margin-top: 7px;"
-      @click="confirmAttendance">
-      Confirmar presença
-    </button>
+      <!-- Botões -->
+      <button class="button"
+        @click="localModalIsOpen = !localModalIsOpen">
+        Ver local do evento
+      </button>
+      <button class="button" style="margin-top: 7px;"
+        @click="confirmAttendance">
+        Confirmar presença
+      </button>
 
-    <!-- Modal do local do evento -->
-    <div v-if="localModalIsOpen" class="modal-overlay">
-      <div class="modal">
-        <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
-          &times;
-        </span>
-        <div class="modal-content">
-          <h3 style="margin-top: 0;">
-            O evento será na NOSSA CASA!
-          </h3>
-          <p>Rua Libero Joaquim Pierini, s/n</p>
-          <p>Bairro Coloninha Zilli</p>
-          <p>Criciúma</p>
-          <button class="button">
-            Ver no mapa
-          </button>
+      <!-- Modal do local do evento -->
+      <div v-if="localModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <h3 style="margin-top: 0;">
+              O evento será na NOSSA CASA!
+            </h3>
+            <p>Rua Libero Joaquim Pierini, s/n</p>
+            <p>Bairro Coloninha Zilli</p>
+            <p>Criciúma</p>
+            <button class="button">
+              Ver no mapa
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Modal do presente -->
-    <div v-if="giftModalIsOpen" class="modal-overlay">
-      <div class="modal">
-        <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
-          &times;
-        </span>
-        <div class="modal-content">
-          <p>Sua presença é o nosso maior presente! 🎁</p>
-          <p>Mas caso queira presentear, nossa sugestão é:</p>
-          <h4>Fraldas Pompers tamanho M</h4>
+      <!-- Modal do presente -->
+      <div v-if="giftModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <h4>Sua presença é o nosso maior presente! 🎁</h4>
+            <p>Mas caso queira presentear, nossa sugestão é:</p>
+            <h4>Fraldas Pompers tamanho M</h4>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- rodape -->
-    <div class="footer flex-column">
-      <a @click="goToInvite">
-        Precisando de um convite digital?
-        Veja nossos modelos.
-      </a>
+      <!-- rodape -->
+      <div class="footer flex-column">
+        <a @click="goToInvite">
+          Precisando de um convite digital?
+          Veja nossos modelos.
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -94,7 +96,7 @@ const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
-  window.location.href = "https://www.cutt.ly/WhatsApp-Axis3D";
+  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
 };
 
 const changeBackground = () => {
@@ -154,10 +156,16 @@ onMounted(() => {
   min-height: 100vh;
   width: 100%;
   display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.invite-content {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding-bottom: 60px;
 }
 
 .bg {
