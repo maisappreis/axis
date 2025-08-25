@@ -1,0 +1,1 @@
+import{_ as t,c as o,a as n,F as r,o as a}from"./index-CpTpVAK6.js";const l={};function s(i,e){return a(),o(r,null,[e[0]||(e[0]=n("h1",null,"Pequena Sereia",-1)),e[1]||(e[1]=n("h3",null," Convite modelo ",-1))],64)}const u=t(l,[["render",s]]);export{u as default};
