@@ -26,8 +26,4 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-.loading {
-  padding: 30px 15px;
-}
 </style>
