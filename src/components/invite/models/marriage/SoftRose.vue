@@ -1,0 +1,420 @@
+<template>
+  <div class="invite-container">
+    <div class="invite-content">
+      <div class="bg bg1"></div>
+      <div class="bg bg2"></div>
+      <div id="star-container"></div>
+      <div class="diamonds diamond-one">
+        <img src="@/assets/Marriage/diamond.png" alt="diamond" />
+      </div>
+      <div class="diamonds diamond-two">
+        <img src="@/assets/Marriage/diamond.png" alt="diamond" />
+      </div>
+      <img src="@/assets/Marriage/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+
+      <h1 class="names">
+        Mariana <br>
+        & Rafael
+      </h1>
+      
+      <p class="text">
+        Convidam para o seu casamento
+      </p>
+      <div class="diamond"></div>
+
+      <!-- Dia e Horário -->
+      <div class="flex-row">
+        <h2 style="margin: 15px; z-index: 2;">
+          <span>06.12.2026 | 10h00</span>
+        </h2>
+      </div>
+      <div class="diamond"></div>
+      <p style="max-width: 300px; margin: 20px 0; color: black; z-index: 2;">
+        Confirme sua presenta até o dia 22/11/2025
+      </p> 
+
+      <!-- Botões -->
+      <div class="button-area">
+        <button class="button" style="margin-top: 7px;"
+          @click="confirmAttendance">
+          Confirmar presença
+        </button>
+        <button class="button"
+          @click="localModalIsOpen = !localModalIsOpen">
+          Ver local do evento
+        </button>
+      </div>
+
+      <div style="display: flex; max-width: 350px;">
+        <h4 style="margin: 40px 15px 10px 15px;z-index: 2;">
+          Gostaria de nos presentear?
+        </h4>
+      </div>
+      
+      <!-- Modal do local do evento -->
+      <div v-if="localModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="localModalIsOpen = !localModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <p class="flex-column align-center">
+              <span class="flex-column" style="margin: 5px;">
+                <strong style="margin-bottom: 6px;">CERIMÔNIA: </strong> 
+                <span>Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC</span>
+              </span>
+              <button class="button">
+                Ver no mapa
+              </button>
+              <span class="flex-column" style="margin: 15px;">
+                <strong style="margin-bottom: 6px;">RECEPÇÃO:</strong> Centro de Eventos Luz
+                Rodovia das Amoras, 1000
+              </span>
+              <button class="button">
+                Ver no mapa
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal do presente -->
+      <div v-if="giftModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <h4>Sua presença é o nosso maior presente! 🎁</h4>
+            <p>Mas caso queira nos dar um mimo, poderia ser via PIX:</p>
+            <h4>CHAVE_PIX_AQUI</h4>
+            <button class="button">
+              Copiar chave PIX
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rodapé -->
+      <div class="footer flex-column">
+        <a @click="goToInvite">
+          Precisando de um convite digital?
+          Veja nossos modelos.
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const goToInvite = () => router.push("/invite");
+
+const giftModalIsOpen = ref(false);
+const localModalIsOpen = ref(false);
+
+const confirmAttendance = () => {
+  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
+};
+
+const changeBackground = () => {
+  const bg1 = document.querySelector(".bg1") as HTMLElement | null;
+  const bg2 = document.querySelector(".bg2") as HTMLElement | null;;
+
+  let showingBg1 = true;
+
+  setInterval(() => {
+    if(bg1 && bg2) {
+      if (showingBg1) {
+        bg1.style.opacity = "0";
+        bg2.style.opacity = "1";
+      } else {
+        bg1.style.opacity = "1";
+        bg2.style.opacity = "0";
+      }
+    }
+    
+    showingBg1 = !showingBg1;
+  }, 3000); // Altera a cada 3 segundos
+};
+
+const makeLittleStars = () => {
+  const container = document.getElementById("star-container");
+  if (!container) return;
+
+  for (let i = 0; i < 50; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+
+    // posição aleatória
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+
+    // tamanho aleatório
+    const size = Math.random() * 4 + 2;
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    // delay aleatório da animação
+    star.style.animationDelay = (Math.random() * 3) + "s";
+
+    container.appendChild(star);
+  }
+};
+
+onMounted(() => {
+  changeBackground();
+  makeLittleStars();
+});
+</script>
+
+<style>
+.invite-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.invite-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+}
+
+.bg1 {
+  background-image: url('@/assets/Marriage/soft-rose-1.png');
+  opacity: 1;
+  z-index: -2;
+}
+
+.bg2 {
+  background-image: url('@/assets/Marriage/soft-rose-2.png');
+  opacity: 0;
+  z-index: -1;
+}
+
+.names {
+  font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  margin: 0;
+  color: rgb(129, 91, 72);
+  z-index: 2;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(129, 91, 72);
+  transform: rotate(45deg);
+}
+
+.text {
+  color: black;
+  width: 300px;
+  z-index: 2;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  cursor: pointer;
+}
+
+/* Estrelas piscando ao fundo */
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+#star-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none; /* não atrapalha clique */
+}
+
+.star {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite;
+  box-shadow: 0 0 6px rgba(253, 231, 252, 0.745);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.button-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 220px;
+  background-color: rgb(129, 91, 72);
+  color: white;
+  font-size: 15px;
+  border: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.button:hover {
+  background-color: rgb(97, 69, 54);
+}
+
+/* Losangulos se movimentando */
+
+.diamonds {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Direita → Esquerda */
+.diamond-one {
+  top: 1%;
+  right: 30%;
+  animation: moveCloudLeft 40s linear infinite alternate;
+}
+
+/* Esquerda → Direita */
+.diamond-two {
+  top: 25%;
+  left: 30%;
+  animation: moveCloudRight 40s linear infinite alternate;
+}
+
+.diamond-one img {
+  width: 300px;
+}
+
+.diamond-two img {
+  width: 400px;
+}
+
+/* Esquerda → Direita */
+@keyframes moveCloudRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300px);
+  }
+}
+
+/* Direita → Esquerda */
+@keyframes moveCloudLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+/* Presente */
+
+.gift {
+  position: absolute;
+  bottom: 12vh;
+  left: 52%;
+  transform: translateX(-50%);
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+@keyframes swing {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  25%  { transform: translateX(-50%) rotate(15deg); }
+  50%  { transform: translateX(-50%) rotate(0deg); }
+  75%  { transform: translateX(-50%) rotate(-15deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.gift {
+  animation: swing 2s infinite ease-in-out;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+.modal {
+  position: relative;
+  background: rgb(233, 215, 206);
+  border-radius: 12px;
+  border: 6px solid rgb(97, 69, 54, 0.8);
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.modal-content {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 50vw;
+  height: fit-content; 
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+</style>

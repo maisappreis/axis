@@ -41,6 +41,11 @@ const router = createRouter({
       name: "leaves-green",
       component: () => import("@/components/invite/models/marriage/LeavesGreen.vue")
     },
+    {
+      path: "/invite/soft-rose",
+      name: "soft-rose",
+      component: () => import("@/components/invite/models/marriage/SoftRose.vue")
+    },
 
     // Temas dos convites corporativos
     {

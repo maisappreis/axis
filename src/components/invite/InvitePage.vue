@@ -75,6 +75,7 @@ const invites = ref<Invite[]>([
   { name: "Pequena Sereia", type: "childlike", src: "/axis-3D/models/little-mermaid.png", alt: "little marmaid invite", link: "/invite/little-mermaid" },
   { name: "Leaves Green", type: "marriage", src: "/axis-3D/models/leaves-green.png", alt: "marriage invite", link: "/invite/leaves-green" },
   { name: "Chic Black", type: "corporate", src: "/axis-3D/models/chic-black.png", alt: "corporate invite", link: "/invite/chic-black" },
+  { name: "Soft Rose", type: "marriage", src: "/axis-3D/models/soft-rose.png", alt: "marriage invite", link: "/invite/soft-rose" },
 ]);
 const activeFilters = ref<string[]>([]);
 
