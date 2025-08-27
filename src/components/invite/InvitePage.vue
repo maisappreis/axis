@@ -16,26 +16,23 @@
     
     <div id="models-section" style="height: 90vh;">
       <h1 style="width: 100vw;">Nossos modelos</h1>
+      <span>Filtre por:</span>
       <div class="page-filters">
         <button>Convites de Aniversário</button>
         <button>Convites de Casamento</button>
-        <button>Convites de Chá de Bebê</button>
         <button>Convites de Chá Revelação</button>
         <button>Convites de Eventos Corporativos</button>
+        <button>Convites Infantis</button>
       </div>
       <p>Catálogo com todos os convites modelos</p>
       <div class="page-invites">
         <div class="invite-model" @click="goToLittleFarm">
-          Fazendinha
+          <span style="margin-bottom: 10px;">Fazendinha</span>
+          <img class="model-img" src="@/assets/models/fazendinha.png" alt="little farm invite">
         </div>
         <div class="invite-model" @click="goToLittleMermaid">
-          Pequena Sereia
-        </div>
-        <div class="invite-model" @click="goToLittleFarm">
-          Fazendinha
-        </div>
-        <div class="invite-model" @click="goToLittleMermaid">
-          Pequena Sereia
+          <span style="margin-bottom: 10px;">Pequena Sereia</span>
+          <img class="model-img" src="@/assets/models/sereia.png" alt="little marmaid invite">
         </div>
       </div>
     </div>
@@ -110,13 +107,13 @@ const goToLittleMermaid = () => router.push("/invite/pequena-sereia");
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin: 50px 0;
+  margin: 20px 0 50px 0;
 }
 
 button {
-  margin: 10px 20px;
+  margin: 3px 20px;
   padding: 10px;
-  width: 180px;
+  width: 250px;
   background-color: rgb(7, 92, 103);
   color: white;
   font-size: 15px;
@@ -140,20 +137,30 @@ button:hover {
 
 .invite-model {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 160px;
-  height: 200px;
+  height: 220px;
   margin: 15px;
+  padding: 20px 10px;
 
   background-color: rgb(7, 92, 103);
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 5px solid rgb(7, 92, 103);
   cursor: pointer;
 }
 
 .invite-model:hover {
-  background-color: rgb(6, 68, 76);
+  background-color: transparent;
+  color: rgb(7, 92, 103);
+  font-weight: bold;
+}
+
+.model-img {
+  height: 100%;
+  width: 100%;
 }
 </style>

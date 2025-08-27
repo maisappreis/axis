@@ -9,9 +9,8 @@ const router = createRouter({
       component: () => import("@/components/axis3D/AxisPage.vue")
     },
     {
-      path: "/invite",
-      name: "invite",
-      component: () => import("@/components/invite/InvitePage.vue")
+      path: "/:pathMatch(.*)*",
+      redirect: "/"
     },
     {
       path: "/print",
@@ -19,8 +18,9 @@ const router = createRouter({
       component: () => import("@/components/print/PrintingPage.vue")
     },
     {
-      path: "/:pathMatch(.*)*",
-      redirect: "/"
+      path: "/invite",
+      name: "invite",
+      component: () => import("@/components/invite/InvitePage.vue")
     },
 
     // Temas dos convites modelos

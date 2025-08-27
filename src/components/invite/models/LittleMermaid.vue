@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <!-- rodape -->
+      <!-- Rodapé -->
       <div class="footer flex-column">
         <a @click="goToInvite">
           Precisando de um convite digital?
