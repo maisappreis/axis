@@ -34,6 +34,10 @@
           <span style="margin-bottom: 10px;">Pequena Sereia</span>
           <img class="model-img" src="@/assets/models/sereia.png" alt="little marmaid invite">
         </div>
+        <div class="invite-model" @click="goToLeavesGreen">
+          <span style="margin-bottom: 10px;">Leaves Green</span>
+          <img class="model-img" src="@/assets/models/leaves-green.png" alt="marriage invite">
+        </div>
       </div>
     </div>
   </div>
@@ -51,6 +55,7 @@ const scrollToModels = () => {
 
 const goToLittleFarm = () => router.push("/invite/fazendinha");
 const goToLittleMermaid = () => router.push("/invite/pequena-sereia");
+const goToLeavesGreen = () => router.push("/invite/leaves-green");
 
 </script>
 
@@ -141,8 +146,8 @@ button:hover {
   justify-content: center;
   align-items: center;
 
-  width: 160px;
-  height: 220px;
+  width: 260px;
+  height: 320px;
   margin: 15px;
   padding: 20px 10px;
 

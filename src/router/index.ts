@@ -23,16 +23,23 @@ const router = createRouter({
       component: () => import("@/components/invite/InvitePage.vue")
     },
 
-    // Temas dos convites modelos
+    // Temas dos convites infantis
     {
       path: "/invite/fazendinha",
       name: "fazendinha",
-      component: () => import("@/components/invite/models/LittleFarm.vue")
+      component: () => import("@/components/invite/models/childlike/LittleFarm.vue")
     },
     {
       path: "/invite/pequena-sereia",
       name: "pequena-sereia",
-      component: () => import("@/components/invite/models/LittleMermaid.vue")
+      component: () => import("@/components/invite/models/childlike/LittleMermaid.vue")
+    },
+
+    // Temas dos convites de casamento
+    {
+      path: "/invite/leaves-green",
+      name: "leaves-green",
+      component: () => import("@/components/invite/models/marriage/LeavesGreen.vue")
     },
   ]
 });

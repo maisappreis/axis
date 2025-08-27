@@ -1,47 +1,69 @@
 <template>
-  <!-- Tema Pequena Sereia -->
+  <!-- Tema Flores Finas -->
   <div class="invite-container">
     <div class="invite-content">
       <div class="bg bg1"></div>
       <div class="bg bg2"></div>
       <div id="star-container"></div>
-      <img src="@/assets/LittleMermaid/fish-1.png" alt="fish" class="fish fish-one" />
-      <img src="@/assets/LittleMermaid/fish-2.png" alt="fish" class="fish fish-two" />
-      <img src="@/assets/LittleMermaid/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <div class="leaf leaf-one">
+        <img src="@/assets/Marriage/leaf-1.png" alt="leaf" />
+      </div>
+      <div class="leaf leaf-two">
+        <img src="@/assets/Marriage/leaf-2.png" alt="leaf" />
+      </div>
+      <img src="@/assets/Marriage/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
-      <h3 class="title">Aniversário de 1 ano</h3>
-      <h1 class="kid-name">Maitê</h1>
-
+      <h1 class="names">
+        Mariana <br>
+        & Rafael
+      </h1>
+      
       <p class="text">
-        Você está convidado para essa aventura de tirar o felogo!
+        Convidam para o seu casamento
       </p>
+      <div class="diamond"></div>
 
       <!-- Dia e Horário -->
       <div class="flex-row">
-        <h2 class="day circle-text">
-          <span>06/12</span>
-        </h2>
-        <h2 class="time circle-text">
-          <span>10:00</span>
+        <h2 style="margin: 15px;">
+          <span>06.12.2026 | 10h00</span>
         </h2>
       </div>
-      <strong style="width: 200px; margin: 10px 0 20px 0; color: white">
-        Confirme sua presenta até o dia 22/11
-      </strong>
+      <div class="diamond"></div>
+      
+      <p class="local" style="max-width: 400px;">
+        <span style="margin: 5px;">
+          <strong>CERIMÔNIA:</strong> Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC
+        </span>
+        <span style="margin: 5px;">
+          <strong>RECEPÇÃO:</strong> Centro de Eventos Luz
+          Rodovia das Amoras, 1000
+        </span>
+      </p>
+
+      <div class="diamond"></div>
+      <p style="width: 400px; margin: 20px 0; color: black">
+        Confirme sua presenta até o dia 22/11/2025
+      </p>
 
       <!-- Botões -->
       <div class="button-area">
-        <button class="button"
-          @click="localModalIsOpen = !localModalIsOpen">
-          Ver local do evento
-        </button>
         <button class="button" style="margin-top: 7px;"
           @click="confirmAttendance">
           Confirmar presença
         </button>
+        <button class="button"
+          @click="localModalIsOpen = !localModalIsOpen">
+          Ver local do evento
+        </button>
+      </div>
+
+      <div style="display: flex; width: 400px;">
+        <h4 style="margin: 40px 15px 10px 15px;">
+          Gostaria de nos presentear?
+        </h4>
       </div>
       
-
       <!-- Modal do local do evento -->
       <div v-if="localModalIsOpen" class="modal-overlay">
         <div class="modal">
@@ -49,14 +71,20 @@
             &times;
           </span>
           <div class="modal-content">
-            <h3 style="margin-top: 0;">
-              O evento será na NOSSA CASA!
-            </h3>
-            <p>Rua Exemplo de Rua Aqui, 250</p>
-            <p>Bairro Centro</p>
-            <p>Criciúma - SC</p>
+            <p class="local">
+              <span style="margin: 5px;">
+                <strong>CERIMÔNIA:</strong> Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC
+              </span>
+              <span style="margin: 5px;">
+                <strong>RECEPÇÃO:</strong> Centro de Eventos Luz
+                Rodovia das Amoras, 1000
+              </span>
+            </p>
+            <button class="button" style="margin-right: 15px;">
+              Ver no mapa local da cerimônia
+            </button>
             <button class="button">
-              Ver no mapa
+              Ver no mapa local da recepção
             </button>
           </div>
         </div>
@@ -70,8 +98,11 @@
           </span>
           <div class="modal-content">
             <h4>Sua presença é o nosso maior presente! 🎁</h4>
-            <p>Mas caso queira presentear, nossa sugestão é:</p>
-            <h4>Roupas tamanho P</h4>
+            <p>Mas caso queira nos dar um mimo, poderia ser via PIX:</p>
+            <h4>CHAVE_PIX_AQUI</h4>
+            <button class="button">
+              Copiar chave PIX
+            </button>
           </div>
         </div>
       </div>
@@ -181,13 +212,13 @@ onMounted(() => {
 }
 
 .bg1 {
-  background-image: url('@/assets/LittleMermaid/pequena-sereia-1.png');
+  background-image: url('@/assets/Marriage/leaves-green-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/LittleMermaid/pequena-sereia-2.png');
+  background-image: url('@/assets/Marriage/leaves-green-2.png');
   opacity: 0;
   z-index: -1;
 }
@@ -201,33 +232,30 @@ onMounted(() => {
   flex-direction: column;
 }
 
-.title {
+.names {
   font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 60px;
   margin: 0;
+  color: rgb(140, 140, 88);
   z-index: 2;
 }
 
-.kid-name {
-  font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
-  font-size: 80px;
-  margin: 0;
-  color: rgb(255, 247, 0);
-  z-index: 2;
+.diamond {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(140, 140, 88);
+  transform: rotate(45deg);
+}
+
+.local {
+  display: flex;
+  flex-direction: column;
 }
 
 .text {
-  color: white;
+  color: black;
   width: 300px;
   z-index: 2;
-}
-
-.day {
-  margin-right: 10px;
-}
-
-.time {
-  margin-left: 10px;
 }
 
 .footer {
@@ -241,25 +269,6 @@ onMounted(() => {
   background-color: rgb(45, 45, 45);
   color: white;
   cursor: pointer;
-}
-
-/* Circulos alternando de cor a cada segundo */
-
-.circle-text {
-  margin: 0 10px;
-  width: 120px;
-  height: 60px;
-  border-radius: 40%;
-  display: grid;
-  place-items: center;
-  color: white;
-  animation: changeColor 2s infinite alternate;
-}
-
-@keyframes changeColor {
-  0%   { background-color: rgb(130, 80, 162); }
-  50%  { background-color: rgb(231, 88, 55); }
-  100% { background-color: rgb(189, 171, 14); }
 }
 
 /* Estrelas piscando ao fundo */
@@ -302,45 +311,56 @@ onMounted(() => {
 .button-area {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   width: 300px;
 }
 
 .button {
+  margin: 10px 0;
   padding: 10px;
-  background-color: rgb(231, 88, 55);
+  width: 220px;
+  background-color: rgb(140, 140, 88);
   color: white;
   font-size: 15px;
   border: 0;
-  border-radius: 5px;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: rgb(186, 55, 26);
+  background-color: rgb(106, 106, 67);
 }
 
-/* Peixes se movimentando */
+/* Folhas se movimentando */
 
-.fish {
+.leaf {
   position: absolute;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: 1;
   pointer-events: none;
 }
 
-.fish-one {
+/* Folha indo da direita para a esquerda */
+.leaf-one {
   top: 10%;
   right: 30%;
-  width: 100px;
   animation: moveCloudLeft 40s linear infinite alternate;
 }
 
-.fish-two {
+/* Folha indo da esquerda para a direita */
+.leaf-two {
   top: 20%;
   left: 30%;
-  width: 80px;
   animation: moveCloudRight 40s linear infinite alternate;
+}
+
+.leaf-one img {
+  width: 80px;
+  animation: spin 20s linear infinite;
+}
+
+.leaf-two img {
+  width: 60px;
+  animation: spin 20s linear infinite;
 }
 
 /* Esquerda → Direita */
@@ -360,6 +380,16 @@ onMounted(() => {
   }
   to {
     transform: translateX(-300px);
+  }
+}
+
+/* Gira 360° */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -401,9 +431,9 @@ onMounted(() => {
 
 .modal {
   position: relative;
-  background: rgb(224, 253, 255);
+  background: rgb(235, 225, 223);
   border-radius: 12px;
-  border: 6px solid #0d6b9d;
+  border: 6px solid rgb(106, 106, 67, 0.8);
   padding: 20px;
   text-align: center;
   z-index: 10;
