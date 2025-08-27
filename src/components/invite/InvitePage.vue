@@ -18,25 +18,39 @@
       <h1 style="width: 100vw;">Nossos modelos</h1>
       <span>Filtre por:</span>
       <div class="page-filters">
-        <button>Convites de Aniversário</button>
-        <button>Convites de Casamento</button>
-        <button>Convites de Chá Revelação</button>
-        <button>Convites de Eventos Corporativos</button>
-        <button>Convites Infantis</button>
+        <button
+          :class="{ active: activeFilters.includes('birthday') }"
+          @click="toggleFilter('birthday')">
+          Convites de Aniversário
+        </button>
+        <button 
+          :class="{ active: activeFilters.includes('marriage') }"
+          @click="toggleFilter('marriage')">
+          Convites de Casamento
+        </button>
+        <button 
+          :class="{ active: activeFilters.includes('gender-reveal') }"
+          @click="toggleFilter('gender-reveal')">
+          Convites de Chá Revelação
+        </button>
+        <button 
+          :class="{ active: activeFilters.includes('corporate') }"
+          @click="toggleFilter('corporate')">
+          Convites de Eventos Corporativos
+        </button>
+        <button 
+          :class="{ active: activeFilters.includes('childlike') }"
+          @click="toggleFilter('childlike')"> 
+          Convites Infantis
+        </button>
       </div>
       <p>Catálogo com todos os convites modelos</p>
       <div class="page-invites">
-        <div class="invite-model" @click="goToLittleFarm">
-          <span style="margin-bottom: 10px;">Fazendinha</span>
-          <img class="model-img" src="@/assets/models/fazendinha.png" alt="little farm invite">
-        </div>
-        <div class="invite-model" @click="goToLittleMermaid">
-          <span style="margin-bottom: 10px;">Pequena Sereia</span>
-          <img class="model-img" src="@/assets/models/sereia.png" alt="little marmaid invite">
-        </div>
-        <div class="invite-model" @click="goToLeavesGreen">
-          <span style="margin-bottom: 10px;">Leaves Green</span>
-          <img class="model-img" src="@/assets/models/leaves-green.png" alt="marriage invite">
+        <div v-for="(invite, index) in filteredInvites" :key="index">
+          <div class="invite-model" @click="goToInvite(invite.link)">
+            <span style="margin-bottom: 10px;">{{  invite.name }}</span>
+            <img class="model-img" :src=invite.src :alt=invite.alt>
+          </div>
         </div>
       </div>
     </div>
@@ -44,18 +58,44 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
+interface Invite {
+  name: string,
+  type: string,
+  src: string,
+  alt: string,
+  link: string
+}
+
 const router = useRouter();
+const invites = ref<Invite[]>([
+  { name: "Fazendinha", type: "childlike", src: "/axis-3D/models/little-farm.png", alt: "little farm invite", link: "/invite/little-farm" },
+  { name: "Pequena Sereia", type: "childlike", src: "/axis-3D/models/little-mermaid.png", alt: "little marmaid invite", link: "/invite/little-mermaid" },
+  { name: "Leaves Green", type: "marriage", src: "/axis-3D/models/leaves-green.png", alt: "marriage invite", link: "/invite/leaves-green" },
+]);
+const activeFilters = ref<string[]>([]);
 
 const scrollToModels = () => {
   const section = document.getElementById("models-section");
   section?.scrollIntoView({ behavior: "smooth" });
 };
 
-const goToLittleFarm = () => router.push("/invite/fazendinha");
-const goToLittleMermaid = () => router.push("/invite/pequena-sereia");
-const goToLeavesGreen = () => router.push("/invite/leaves-green");
+const goToInvite = (link: string) => router.push(link);
+
+const toggleFilter = (type: string) => {
+  if (activeFilters.value.includes(type)) {
+    activeFilters.value = activeFilters.value.filter(f => f !== type);
+  } else {
+    activeFilters.value.push(type);
+  }
+};
+
+const filteredInvites = computed(() => {
+  if (activeFilters.value.length === 0) return invites.value;
+  return invites.value.filter(invite => activeFilters.value.includes(invite.type));
+});
 
 </script>
 
@@ -131,11 +171,19 @@ button:hover {
   background-color: rgb(6, 68, 76);
 }
 
+button.active {
+  border: 6px solid rgb(7, 92, 103);
+  background-color: transparent;
+  color: rgb(7, 92, 103);
+  font-weight: bold;
+}
+
 .page-invites {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  
   margin: 15px 0;
   padding: 0 10px;
 }
