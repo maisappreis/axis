@@ -30,21 +30,9 @@
         </h2>
       </div>
       <div class="diamond"></div>
-      
-      <p class="local" style="max-width: 400px;">
-        <span style="margin: 5px;">
-          <strong>CERIMÔNIA:</strong> Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC
-        </span>
-        <span style="margin: 5px;">
-          <strong>RECEPÇÃO:</strong> Centro de Eventos Luz
-          Rodovia das Amoras, 1000
-        </span>
-      </p>
-
-      <div class="diamond"></div>
-      <p style="width: 400px; margin: 20px 0; color: black">
+      <p style="max-width: 300px; margin: 20px 0; color: black">
         Confirme sua presenta até o dia 22/11/2025
-      </p>
+      </p> 
 
       <!-- Botões -->
       <div class="button-area">
@@ -58,7 +46,7 @@
         </button>
       </div>
 
-      <div style="display: flex; width: 400px;">
+      <div style="display: flex; max-width: 350px;">
         <h4 style="margin: 40px 15px 10px 15px;">
           Gostaria de nos presentear?
         </h4>
@@ -71,21 +59,22 @@
             &times;
           </span>
           <div class="modal-content">
-            <p class="local">
-              <span style="margin: 5px;">
-                <strong>CERIMÔNIA:</strong> Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC
+            <p class="flex-column align-center">
+              <span class="flex-column" style="margin: 5px;">
+                <strong style="margin-bottom: 6px;">CERIMÔNIA: </strong> 
+                <span>Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC</span>
               </span>
-              <span style="margin: 5px;">
-                <strong>RECEPÇÃO:</strong> Centro de Eventos Luz
+              <button class="button">
+                Ver no mapa
+              </button>
+              <span class="flex-column" style="margin: 15px;">
+                <strong style="margin-bottom: 6px;">RECEPÇÃO:</strong> Centro de Eventos Luz
                 Rodovia das Amoras, 1000
               </span>
+              <button class="button">
+                Ver no mapa
+              </button>
             </p>
-            <button class="button" style="margin-right: 15px;">
-              Ver no mapa local da cerimônia
-            </button>
-            <button class="button">
-              Ver no mapa local da recepção
-            </button>
           </div>
         </div>
       </div>
@@ -223,15 +212,6 @@ onMounted(() => {
   z-index: -1;
 }
 
-.flex-row {
-  display: flex;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .names {
   font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
   font-size: 60px;
@@ -245,11 +225,6 @@ onMounted(() => {
   height: 10px;
   background-color: rgb(140, 140, 88);
   transform: rotate(45deg);
-}
-
-.local {
-  display: flex;
-  flex-direction: column;
 }
 
 .text {

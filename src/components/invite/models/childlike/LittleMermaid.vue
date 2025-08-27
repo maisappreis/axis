@@ -192,15 +192,6 @@ onMounted(() => {
   z-index: -1;
 }
 
-.flex-row {
-  display: flex;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
   font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
   font-size: 30px;
