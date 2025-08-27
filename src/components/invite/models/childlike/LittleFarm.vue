@@ -180,13 +180,13 @@ onMounted(() => {
 }
 
 .bg1 {
-  background-image: url('@/assets/LittleFarm/fazendinha-1.png');
+  background-image: url('@/assets/LittleFarm/little-farm-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/LittleFarm/fazendinha-2.png');
+  background-image: url('@/assets/LittleFarm/little-farm-2.png');
   opacity: 0;
   z-index: -1;
 }

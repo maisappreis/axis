@@ -25,13 +25,13 @@ const router = createRouter({
 
     // Temas dos convites infantis
     {
-      path: "/invite/fazendinha",
-      name: "fazendinha",
+      path: "/invite/little-farm",
+      name: "little-farm",
       component: () => import("@/components/invite/models/childlike/LittleFarm.vue")
     },
     {
-      path: "/invite/pequena-sereia",
-      name: "pequena-sereia",
+      path: "/invite/little-mermaid",
+      name: "little-mermaid",
       component: () => import("@/components/invite/models/childlike/LittleMermaid.vue")
     },
 

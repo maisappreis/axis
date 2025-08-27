@@ -181,13 +181,13 @@ onMounted(() => {
 }
 
 .bg1 {
-  background-image: url('@/assets/LittleMermaid/pequena-sereia-1.png');
+  background-image: url('@/assets/LittleMermaid/little-mermaid-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/LittleMermaid/pequena-sereia-2.png');
+  background-image: url('@/assets/LittleMermaid/little-mermaid-2.png');
   opacity: 0;
   z-index: -1;
 }
