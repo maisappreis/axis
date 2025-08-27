@@ -41,6 +41,13 @@ const router = createRouter({
       name: "leaves-green",
       component: () => import("@/components/invite/models/marriage/LeavesGreen.vue")
     },
+
+    // Temas dos convites corporativos
+    {
+      path: "/invite/chic-black",
+      name: "chic-black",
+      component: () => import("@/components/invite/models/corporate/ChicBlack.vue")
+    },
   ]
 });
 

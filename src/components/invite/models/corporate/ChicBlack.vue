@@ -2,34 +2,37 @@
   <div class="invite-container">
     <div class="invite-content">
       <div class="bg bg1"></div>
-      <div class="bg bg2"></div>
       <div id="star-container"></div>
-      <div class="leaf leaf-one">
-        <img src="@/assets/Marriage/leaf-1.png" alt="leaf" />
+      <div class="diamonds diamond-one">
+        <img src="@/assets/corporate/diamond.png" alt="diamond" />
       </div>
-      <div class="leaf leaf-two">
-        <img src="@/assets/Marriage/leaf-2.png" alt="leaf" />
+      <div class="diamonds diamond-two">
+        <img src="@/assets/corporate/diamond.png" alt="diamond" />
       </div>
-      <img src="@/assets/Marriage/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
+      <p class="title">Junte-se a nós em um</p>
       <h1 class="names">
-        Mariana <br>
-        & Rafael
+        Jantar de <br> Celebração
       </h1>
       
       <p class="text">
-        Convidam para o seu casamento
+        Somos gratos a todos os nossos colaboradores que diariámente dão suporte a nossa organização.
+        Convidamos você a celebrar os 10 anos do nosso negócio.
       </p>
-      <div class="diamond"></div>
+      -<div class="diamond"></div>-
 
       <!-- Dia e Horário -->
       <div class="flex-row">
-        <h2 style="margin: 15px;">
+        <h2 style="margin: 15px; color: white">
           <span>06.12.2026 | 10h00</span>
         </h2>
       </div>
-      <div class="diamond"></div>
-      <p style="max-width: 300px; margin: 20px 0; color: black">
+      <span class="flex-column" style="margin: 5px; color: rgb(215, 215, 215);">
+        <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
+        <span>Rua José Antônio, 123 - Centro, Criciúma -SC</span>
+      </span>
+      -<div class="diamond"></div>-
+      <p style="max-width: 300px; margin: 20px 0; color: white">
         Confirme sua presenta até o dia 22/11/2025
       </p> 
 
@@ -41,14 +44,8 @@
         </button>
         <button class="button"
           @click="localModalIsOpen = !localModalIsOpen">
-          Ver local do evento
+          Ver local no mapa
         </button>
-      </div>
-
-      <div style="display: flex; max-width: 350px;">
-        <h4 style="margin: 40px 15px 10px 15px;">
-          Gostaria de nos presentear?
-        </h4>
       </div>
       
       <!-- Modal do local do evento -->
@@ -60,15 +57,8 @@
           <div class="modal-content">
             <p class="flex-column align-center">
               <span class="flex-column" style="margin: 5px;">
-                <strong style="margin-bottom: 6px;">CERIMÔNIA: </strong> 
-                <span>Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC</span>
-              </span>
-              <button class="button">
-                Ver no mapa
-              </button>
-              <span class="flex-column" style="margin: 15px;">
-                <strong style="margin-bottom: 6px;">RECEPÇÃO:</strong> Centro de Eventos Luz
-                Rodovia das Amoras, 1000
+                <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
+                <span>Rua José Antônio, 123 - Centro, Criciúma -SC</span>
               </span>
               <button class="button">
                 Ver no mapa
@@ -119,27 +109,6 @@ const confirmAttendance = () => {
   window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
 };
 
-const changeBackground = () => {
-  const bg1 = document.querySelector(".bg1") as HTMLElement | null;
-  const bg2 = document.querySelector(".bg2") as HTMLElement | null;;
-
-  let showingBg1 = true;
-
-  setInterval(() => {
-    if(bg1 && bg2) {
-      if (showingBg1) {
-        bg1.style.opacity = "0";
-        bg2.style.opacity = "1";
-      } else {
-        bg1.style.opacity = "1";
-        bg2.style.opacity = "0";
-      }
-    }
-    
-    showingBg1 = !showingBg1;
-  }, 3000); // Altera a cada 3 segundos
-};
-
 const makeLittleStars = () => {
   const container = document.getElementById("star-container");
   if (!container) return;
@@ -165,7 +134,6 @@ const makeLittleStars = () => {
 };
 
 onMounted(() => {
-  changeBackground();
   makeLittleStars();
 });
 </script>
@@ -200,34 +168,34 @@ onMounted(() => {
 }
 
 .bg1 {
-  background-image: url('@/assets/Marriage/leaves-green-1.png');
+  background-image: url('@/assets/corporate/chic-black-1.png');
   opacity: 1;
   z-index: -2;
 }
 
-.bg2 {
-  background-image: url('@/assets/Marriage/leaves-green-2.png');
-  opacity: 0;
-  z-index: -1;
+.title {
+  color: white;
+  margin-bottom: 15px;
+  z-index: 2;
 }
 
 .names {
   font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
   font-size: 60px;
-  margin: 0;
-  color: rgb(140, 140, 88);
+  margin: 0 0 20px 0;
+  color: white;
   z-index: 2;
 }
 
 .diamond {
   width: 10px;
   height: 10px;
-  background-color: rgb(140, 140, 88);
+  background-color: white;
   transform: rotate(45deg);
 }
 
 .text {
-  color: black;
+  color: rgb(216, 216, 216);
   width: 300px;
   z-index: 2;
 }
@@ -293,7 +261,7 @@ onMounted(() => {
   margin: 10px 0;
   padding: 10px;
   width: 220px;
-  background-color: rgb(140, 140, 88);
+  background-color: rgb(132, 132, 132);
   color: white;
   font-size: 15px;
   border: 0;
@@ -301,40 +269,38 @@ onMounted(() => {
 }
 
 .button:hover {
-  background-color: rgb(106, 106, 67);
+  background-color: rgb(68, 68, 68);
 }
 
-/* Folhas se movimentando */
+/* Losangulos se movimentando */
 
-.leaf {
+.diamonds {
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.1;
   z-index: 1;
   pointer-events: none;
 }
 
-/* Folha indo da direita para a esquerda */
-.leaf-one {
-  top: 10%;
+/* Direita → Esquerda */
+.diamond-one {
+  top: 1%;
   right: 30%;
   animation: moveCloudLeft 40s linear infinite alternate;
 }
 
-/* Folha indo da esquerda para a direita */
-.leaf-two {
-  top: 20%;
+/* Esquerda → Direita */
+.diamond-two {
+  top: 25%;
   left: 30%;
   animation: moveCloudRight 40s linear infinite alternate;
 }
 
-.leaf-one img {
-  width: 80px;
-  animation: spin 20s linear infinite;
+.diamond-one img {
+  width: 300px;
 }
 
-.leaf-two img {
-  width: 60px;
-  animation: spin 20s linear infinite;
+.diamond-two img {
+  width: 400px;
 }
 
 /* Esquerda → Direita */
@@ -354,16 +320,6 @@ onMounted(() => {
   }
   to {
     transform: translateX(-300px);
-  }
-}
-
-/* Gira 360° */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
@@ -405,9 +361,9 @@ onMounted(() => {
 
 .modal {
   position: relative;
-  background: rgb(235, 225, 223);
+  background: rgb(215, 215, 215);
   border-radius: 12px;
-  border: 6px solid rgb(106, 106, 67, 0.8);
+  border: 6px solid rgba(114, 114, 114, 0.8);
   padding: 20px;
   text-align: center;
   z-index: 10;
