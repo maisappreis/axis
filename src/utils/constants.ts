@@ -13,4 +13,6 @@ export const invites: Invite[] = [
   { name: "Chic Black", type: ["corporate", "birthday", "marriage"], src: new URL("@/assets/images/models/chic-black.png", import.meta.url).href, alt: "corporate invite", link: "/invite/chic-black" },
   { name: "Soft Rose", type: ["marriage", "birthday"], src: new URL("@/assets/images/models/soft-rose.png", import.meta.url).href, alt: "marriage invite", link: "/invite/soft-rose" },
   { name: "Yellow Bubble", type: ["corporate", "marriage", "birthday"], src: new URL("@/assets/images/models/yellow-bubble.png", import.meta.url).href, alt: "corporate invite", link: "/invite/yellow-bubble" },
+  { name: "Pink Blue", type: ["gender-reveal"], src: new URL("@/assets/images/models/pink-blue.png", import.meta.url).href, alt: "gender reveal invite", link: "/invite/pink-blue" },
+  { name: "Boy Or Girl", type: ["gender-reveal"], src: new URL("@/assets/images/models/boy-or-girl.png", import.meta.url).href, alt: "gender reveal invite", link: "/invite/boy-or-girl" },
 ];

@@ -35,6 +35,18 @@ const router = createRouter({
       component: () => import("@/components/invite/models/childlike/LittleMermaid.vue")
     },
 
+    // Temas dos convites de chá revelação
+    {
+      path: "/invite/pink-blue",
+      name: "pink-blue",
+      component: () => import("@/components/invite/models/gender-reveal/PinkBlue.vue")
+    },
+    {
+      path: "/invite/boy-or-girl",
+      name: "boy-or-girl",
+      component: () => import("@/components/invite/models/gender-reveal/BoyOrGirl.vue")
+    },
+
     // Temas dos convites de casamento
     {
       path: "/invite/leaves-green",
