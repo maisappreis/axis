@@ -12,4 +12,5 @@ export const invites: Invite[] = [
   { name: "Leaves Green", type: ["marriage", "birthday"], src: new URL("@/assets/images/models/leaves-green.png", import.meta.url).href, alt: "marriage invite", link: "/invite/leaves-green" },
   { name: "Chic Black", type: ["corporate", "birthday", "marriage"], src: new URL("@/assets/images/models/chic-black.png", import.meta.url).href, alt: "corporate invite", link: "/invite/chic-black" },
   { name: "Soft Rose", type: ["marriage", "birthday"], src: new URL("@/assets/images/models/soft-rose.png", import.meta.url).href, alt: "marriage invite", link: "/invite/soft-rose" },
+  { name: "Yellow Bubble", type: ["corporate", "marriage", "birthday"], src: new URL("@/assets/images/models/yellow-bubble.png", import.meta.url).href, alt: "corporate invite", link: "/invite/yellow-bubble" },
 ];

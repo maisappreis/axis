@@ -53,6 +53,11 @@ const router = createRouter({
       name: "chic-black",
       component: () => import("@/components/invite/models/corporate/ChicBlack.vue")
     },
+    {
+      path: "/invite/yellow-bubble",
+      name: "yellow-bubble",
+      component: () => import("@/components/invite/models/corporate/YellowBubble.vue")
+    },
   ]
 });
 
