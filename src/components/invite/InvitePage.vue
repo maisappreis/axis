@@ -71,12 +71,19 @@ interface Invite {
 
 const router = useRouter();
 const invites = ref<Invite[]>([
-  { name: "Fazendinha", type: "childlike", src: "/axis-3D/models/little-farm.png", alt: "little farm invite", link: "/invite/little-farm" },
-  { name: "Pequena Sereia", type: "childlike", src: "/axis-3D/models/little-mermaid.png", alt: "little marmaid invite", link: "/invite/little-mermaid" },
-  { name: "Leaves Green", type: "marriage", src: "/axis-3D/models/leaves-green.png", alt: "marriage invite", link: "/invite/leaves-green" },
-  { name: "Chic Black", type: "corporate", src: "/axis-3D/models/chic-black.png", alt: "corporate invite", link: "/invite/chic-black" },
-  { name: "Soft Rose", type: "marriage", src: "/axis-3D/models/soft-rose.png", alt: "marriage invite", link: "/invite/soft-rose" },
+  { name: "Fazendinha", type: "childlike", src: new URL("@/assets/images/models/little-farm.png", import.meta.url).href, alt: "little farm invite", link: "/invite/little-farm" },
+  { name: "Pequena Sereia", type: "childlike", src: new URL("@/assets/images/models/little-mermaid.png", import.meta.url).href, alt: "little marmaid invite", link: "/invite/little-mermaid" },
+  { name: "Leaves Green", type: "marriage", src: new URL("@/assets/images/models/leaves-green.png", import.meta.url).href, alt: "marriage invite", link: "/invite/leaves-green" },
+  { name: "Chic Black", type: "corporate", src: new URL("@/assets/images/models/chic-black.png", import.meta.url).href, alt: "corporate invite", link: "/invite/chic-black" },
+  { name: "Soft Rose", type: "marriage", src: new URL("@/assets/images/models/soft-rose.png", import.meta.url).href, alt: "marriage invite", link: "/invite/soft-rose" },
 ]);
+// const invites = ref<Invite[]>([
+//   { name: "Fazendinha", type: "childlike", src: "/axis-3D/models/little-farm.png", alt: "little farm invite", link: "/invite/little-farm" },
+//   { name: "Pequena Sereia", type: "childlike", src: "/axis-3D/models/little-mermaid.png", alt: "little marmaid invite", link: "/invite/little-mermaid" },
+//   { name: "Leaves Green", type: "marriage", src: "/axis-3D/models/leaves-green.png", alt: "marriage invite", link: "/invite/leaves-green" },
+//   { name: "Chic Black", type: "corporate", src: "/axis-3D/models/chic-black.png", alt: "corporate invite", link: "/invite/chic-black" },
+//   { name: "Soft Rose", type: "marriage", src: "/axis-3D/models/soft-rose.png", alt: "marriage invite", link: "/invite/soft-rose" },
+// ]);
 const activeFilters = ref<string[]>([]);
 
 const scrollToModels = () => {
