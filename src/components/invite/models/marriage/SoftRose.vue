@@ -94,30 +94,20 @@
           </div>
         </div>
       </div>
-
-      <!-- Rodapé -->
-      <div class="footer flex-column">
-        <a @click="goToInvite">
-          Precisando de um convite digital?
-          Veja nossos modelos.
-        </a>
-      </div>
+      <FooterPage />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import { useDataUtils } from "@/utils/utils";
+import FooterPage from "@/components/invite/FooterPage.vue";
 
-const router = useRouter();
 const { makeLittleStars, changeBackground } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
-
-const goToInvite = () => router.push("/invite");
 
 const confirmAttendance = () => {
   window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
