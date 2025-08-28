@@ -130,7 +130,7 @@ const filteredInvites = computed(() => {
   margin: 0;
   height: 80vh;
 
-  background-image: url('@/assets/invite-page.png');
+  background-image: url('@/assets/images/page/invite-page.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -5,9 +5,9 @@
       <div class="bg bg1"></div>
       <div class="bg bg2"></div>
       <div id="star-container"></div>
-      <img src="@/assets/LittleMermaid/fish-1.png" alt="fish" class="fish fish-one" />
-      <img src="@/assets/LittleMermaid/fish-2.png" alt="fish" class="fish fish-two" />
-      <img src="@/assets/LittleMermaid/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <img src="@/assets/images/childlike/LittleMermaid/fish-1.png" alt="fish" class="fish fish-one" />
+      <img src="@/assets/images/childlike/LittleMermaid/fish-2.png" alt="fish" class="fish fish-two" />
+      <img src="@/assets/images/childlike/LittleMermaid/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h3 class="title">Aniversário de 1 ano</h3>
       <h1 class="kid-name">Maitê</h1>
@@ -101,42 +101,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.invite-container {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.invite-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 80px;
-}
-
-.bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 1s ease-in-out;
-}
-
 .bg1 {
-  background-image: url('@/assets/LittleMermaid/little-mermaid-1.png');
+  background-image: url('@/assets/images/childlike/LittleMermaid/little-mermaid-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/LittleMermaid/little-mermaid-2.png');
+  background-image: url('@/assets/images/childlike/LittleMermaid/little-mermaid-2.png');
   opacity: 0;
   z-index: -1;
 }
@@ -168,19 +140,6 @@ onMounted(() => {
 
 .time {
   margin-left: 10px;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
-  font-size: 12px;
-  background-color: rgb(45, 45, 45);
-  color: white;
-  cursor: pointer;
 }
 
 /* Circulos alternando de cor a cada segundo */
@@ -292,16 +251,6 @@ onMounted(() => {
 
 /* Modal */
 
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9;
-}
-
 .modal {
   position: relative;
   background: rgb(224, 253, 255);
@@ -310,21 +259,5 @@ onMounted(() => {
   padding: 20px;
   text-align: center;
   z-index: 10;
-}
-
-.modal-content {
-  margin-top: 20px;
-  padding: 20px;
-  text-align: center;
-  width: 50vw;
-  height: fit-content; 
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
 }
 </style>

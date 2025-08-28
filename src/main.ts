@@ -6,6 +6,7 @@ import "./assets/css/variables.css";
 import "./assets/css/global.css";
 import "./assets/css/table.css";
 import "./assets/css/effects.css";
+import "./assets/css/invites.css";
 
 import { library } from "@/icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";

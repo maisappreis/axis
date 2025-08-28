@@ -5,12 +5,12 @@
       <div class="bg bg2"></div>
       <div id="star-container"></div>
       <div class="diamonds diamond-one">
-        <img src="@/assets/Marriage/diamond.png" alt="diamond" />
+        <img src="@/assets/images/marriage/diamond.png" alt="diamond" />
       </div>
       <div class="diamonds diamond-two">
-        <img src="@/assets/Marriage/diamond.png" alt="diamond" />
+        <img src="@/assets/images/marriage/diamond.png" alt="diamond" />
       </div>
-      <img src="@/assets/Marriage/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <img src="@/assets/images/marriage/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h1 class="names">
         Mariana <br>
@@ -120,42 +120,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.invite-container {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.invite-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 80px;
-}
-
-.bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 1s ease-in-out;
-}
-
 .bg1 {
-  background-image: url('@/assets/Marriage/soft-rose-1.png');
+  background-image: url('@/assets/images/marriage/soft-rose-1.png');
   opacity: 1;
   z-index: -2;
 }
 
 .bg2 {
-  background-image: url('@/assets/Marriage/soft-rose-2.png');
+  background-image: url('@/assets/images/marriage/soft-rose-2.png');
   opacity: 0;
   z-index: -1;
 }
@@ -179,19 +151,6 @@ onMounted(() => {
   color: black;
   width: 300px;
   z-index: 2;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
-  font-size: 12px;
-  background-color: rgb(45, 45, 45);
-  color: white;
-  cursor: pointer;
 }
 
 .button-area {
@@ -294,16 +253,6 @@ onMounted(() => {
 
 /* Modal */
 
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9;
-}
-
 .modal {
   position: relative;
   background: rgb(233, 215, 206);
@@ -312,21 +261,5 @@ onMounted(() => {
   padding: 20px;
   text-align: center;
   z-index: 10;
-}
-
-.modal-content {
-  margin-top: 20px;
-  padding: 20px;
-  text-align: center;
-  width: 50vw;
-  height: fit-content; 
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
 }
 </style>
