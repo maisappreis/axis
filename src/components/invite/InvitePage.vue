@@ -18,6 +18,11 @@
       <h1 style="width: 100vw;">Nossos modelos</h1>
       <span>Filtre por:</span>
       <div class="page-filters">
+        <button 
+          :class="{ active: activeFilters.includes('childlike') }"
+          @click="toggleFilter('childlike')"> 
+          Convites Infantis
+        </button>
         <button
           :class="{ active: activeFilters.includes('birthday') }"
           @click="toggleFilter('birthday')">
@@ -38,13 +43,10 @@
           @click="toggleFilter('corporate')">
           Convites de Eventos Corporativos
         </button>
-        <button 
-          :class="{ active: activeFilters.includes('childlike') }"
-          @click="toggleFilter('childlike')"> 
-          Convites Infantis
-        </button>
+        
       </div>
-      <p>Escolha o tema do seu convite!</p>
+      <h3>Escolha o seu tema favorito!</h3>
+      <p>Após escolher o tema, personalizamos o convite para o seu evento.</p>
       <div class="page-invites">
         <div v-for="(invite, index) in filteredInvites" :key="index">
           <div class="invite-model" @click="goToInvite(invite.link)">
@@ -60,30 +62,9 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-
-interface Invite {
-  name: string,
-  type: string,
-  src: string,
-  alt: string,
-  link: string
-}
+import { invites } from "@/utils/constants";
 
 const router = useRouter();
-const invites = ref<Invite[]>([
-  { name: "Fazendinha", type: "childlike", src: new URL("@/assets/images/models/little-farm.png", import.meta.url).href, alt: "little farm invite", link: "/invite/little-farm" },
-  { name: "Pequena Sereia", type: "childlike", src: new URL("@/assets/images/models/little-mermaid.png", import.meta.url).href, alt: "little marmaid invite", link: "/invite/little-mermaid" },
-  { name: "Leaves Green", type: "marriage", src: new URL("@/assets/images/models/leaves-green.png", import.meta.url).href, alt: "marriage invite", link: "/invite/leaves-green" },
-  { name: "Chic Black", type: "corporate", src: new URL("@/assets/images/models/chic-black.png", import.meta.url).href, alt: "corporate invite", link: "/invite/chic-black" },
-  { name: "Soft Rose", type: "marriage", src: new URL("@/assets/images/models/soft-rose.png", import.meta.url).href, alt: "marriage invite", link: "/invite/soft-rose" },
-]);
-// const invites = ref<Invite[]>([
-//   { name: "Fazendinha", type: "childlike", src: "/axis-3D/models/little-farm.png", alt: "little farm invite", link: "/invite/little-farm" },
-//   { name: "Pequena Sereia", type: "childlike", src: "/axis-3D/models/little-mermaid.png", alt: "little marmaid invite", link: "/invite/little-mermaid" },
-//   { name: "Leaves Green", type: "marriage", src: "/axis-3D/models/leaves-green.png", alt: "marriage invite", link: "/invite/leaves-green" },
-//   { name: "Chic Black", type: "corporate", src: "/axis-3D/models/chic-black.png", alt: "corporate invite", link: "/invite/chic-black" },
-//   { name: "Soft Rose", type: "marriage", src: "/axis-3D/models/soft-rose.png", alt: "marriage invite", link: "/invite/soft-rose" },
-// ]);
 const activeFilters = ref<string[]>([]);
 
 const scrollToModels = () => {
@@ -102,8 +83,15 @@ const toggleFilter = (type: string) => {
 };
 
 const filteredInvites = computed(() => {
-  if (activeFilters.value.length === 0) return invites.value;
-  return invites.value.filter(invite => activeFilters.value.includes(invite.type));
+  let result = invites;
+
+  if (activeFilters.value.length > 0) {
+    result = invites.filter(invite =>
+      invite.type.some(t => activeFilters.value.includes(t))
+    );
+  }
+
+  return [...result].sort((a, b) => a.name.localeCompare(b.name));
 });
 
 </script>

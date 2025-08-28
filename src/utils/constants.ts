@@ -1,0 +1,15 @@
+interface Invite {
+  name: string,
+  type: string[],
+  src: string,
+  alt: string,
+  link: string
+};
+
+export const invites: Invite[] = [
+  { name: "Fazendinha", type: ["childlike"], src: new URL("@/assets/images/models/little-farm.png", import.meta.url).href, alt: "little farm invite", link: "/invite/little-farm" },
+  { name: "Pequena Sereia", type: ["childlike"], src: new URL("@/assets/images/models/little-mermaid.png", import.meta.url).href, alt: "little marmaid invite", link: "/invite/little-mermaid" },
+  { name: "Leaves Green", type: ["marriage", "birthday"], src: new URL("@/assets/images/models/leaves-green.png", import.meta.url).href, alt: "marriage invite", link: "/invite/leaves-green" },
+  { name: "Chic Black", type: ["corporate", "birthday", "marriage"], src: new URL("@/assets/images/models/chic-black.png", import.meta.url).href, alt: "corporate invite", link: "/invite/chic-black" },
+  { name: "Soft Rose", type: ["marriage", "birthday"], src: new URL("@/assets/images/models/soft-rose.png", import.meta.url).href, alt: "marriage invite", link: "/invite/soft-rose" },
+];
