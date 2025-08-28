@@ -90,59 +90,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useDataUtils } from "@/utils/utils";
+
 const router = useRouter();
-const goToInvite = () => router.push("/invite");
+const { makeLittleStars, changeBackground } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
+const goToInvite = () => router.push("/invite");
+
 const confirmAttendance = () => {
   window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
-};
-
-const changeBackground = () => {
-  const bg1 = document.querySelector(".bg1") as HTMLElement | null;
-  const bg2 = document.querySelector(".bg2") as HTMLElement | null;;
-
-  let showingBg1 = true;
-
-  setInterval(() => {
-    if(bg1 && bg2) {
-      if (showingBg1) {
-        bg1.style.opacity = "0";
-        bg2.style.opacity = "1";
-      } else {
-        bg1.style.opacity = "1";
-        bg2.style.opacity = "0";
-      }
-    }
-    
-    showingBg1 = !showingBg1;
-  }, 3000); // Altera a cada 3 segundos
-};
-
-const makeLittleStars = () => {
-  const container = document.getElementById("star-container");
-  if (!container) return;
-
-  for (let i = 0; i < 50; i++) {
-    const star = document.createElement("div");
-    star.classList.add("star");
-
-    // posição aleatória
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-
-    // tamanho aleatório
-    const size = Math.random() * 4 + 2;
-    star.style.width = size + "px";
-    star.style.height = size + "px";
-
-    // delay aleatório da animação
-    star.style.animationDelay = (Math.random() * 3) + "s";
-
-    container.appendChild(star);
-  }
 };
 
 onMounted(() => {
@@ -151,7 +110,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .invite-container {
   position: relative;
   min-height: 100vh;
@@ -251,43 +210,6 @@ onMounted(() => {
   0%   { background-color: rgb(130, 80, 162); }
   50%  { background-color: rgb(231, 88, 55); }
   100% { background-color: rgb(189, 171, 14); }
-}
-
-/* Estrelas piscando ao fundo */
-
-.sky {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: black;
-  overflow: hidden;
-}
-
-#star-container {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none; /* não atrapalha clique */
-}
-
-.star {
-  position: absolute;
-  background: rgb(255, 255, 255);
-  border-radius: 50%;
-  opacity: 0;
-  animation: twinkle 2s infinite;
-  box-shadow: 0 0 6px rgba(253, 231, 252, 0.745);
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
 }
 
 .button-area {

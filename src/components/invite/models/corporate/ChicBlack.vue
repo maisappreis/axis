@@ -19,7 +19,7 @@
         Somos gratos a todos os nossos colaboradores que diariámente dão suporte a nossa organização.
         Convidamos você a celebrar os 10 anos do nosso negócio.
       </p>
-      -<div class="diamond"></div>-
+      <div class="diamond"></div>
 
       <!-- Dia e Horário -->
       <div class="flex-row">
@@ -27,12 +27,12 @@
           <span>06.12.2026 | 10h00</span>
         </h2>
       </div>
-      <span class="flex-column" style="margin: 5px; color: rgb(215, 215, 215);">
+      <span class="flex-column" style="margin: 10px 0; color: rgb(215, 215, 215);">
         <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
         <span>Rua José Antônio, 123 - Centro, Criciúma -SC</span>
       </span>
-      -<div class="diamond"></div>-
-      <p style="max-width: 300px; margin: 20px 0; color: white">
+      <div class="diamond"></div>
+      <p style="max-width: 300px; margin: 15px 0; color: white">
         Confirme sua presenta até o dia 22/11/2025
       </p> 
 
@@ -99,38 +99,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useDataUtils } from "@/utils/utils";
+
 const router = useRouter();
-const goToInvite = () => router.push("/invite");
+const { makeLittleStars } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
+const goToInvite = () => router.push("/invite");
+
 const confirmAttendance = () => {
   window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
-};
-
-const makeLittleStars = () => {
-  const container = document.getElementById("star-container");
-  if (!container) return;
-
-  for (let i = 0; i < 50; i++) {
-    const star = document.createElement("div");
-    star.classList.add("star");
-
-    // posição aleatória
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-
-    // tamanho aleatório
-    const size = Math.random() * 4 + 2;
-    star.style.width = size + "px";
-    star.style.height = size + "px";
-
-    // delay aleatório da animação
-    star.style.animationDelay = (Math.random() * 3) + "s";
-
-    container.appendChild(star);
-  }
 };
 
 onMounted(() => {
@@ -138,7 +118,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .invite-container {
   position: relative;
   min-height: 100vh;
@@ -153,7 +133,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .bg {
@@ -175,14 +155,14 @@ onMounted(() => {
 
 .title {
   color: white;
-  margin-bottom: 15px;
+  margin: 5px 0;
   z-index: 2;
 }
 
 .names {
   font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
   font-size: 60px;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   color: white;
   z-index: 2;
 }
@@ -195,6 +175,7 @@ onMounted(() => {
 }
 
 .text {
+  font-size: 13px;
   color: rgb(216, 216, 216);
   width: 300px;
   z-index: 2;
@@ -211,43 +192,6 @@ onMounted(() => {
   background-color: rgb(45, 45, 45);
   color: white;
   cursor: pointer;
-}
-
-/* Estrelas piscando ao fundo */
-
-.sky {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: black;
-  overflow: hidden;
-}
-
-#star-container {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none; /* não atrapalha clique */
-}
-
-.star {
-  position: absolute;
-  background: rgb(255, 255, 255);
-  border-radius: 50%;
-  opacity: 0;
-  animation: twinkle 2s infinite;
-  box-shadow: 0 0 6px rgba(253, 231, 252, 0.745);
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
 }
 
 .button-area {

@@ -1,0 +1,36 @@
+/* Estrelas piscando ao fundo */
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+#star-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none; /* não atrapalha clique */
+}
+
+.star {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite;
+  box-shadow: 0 0 6px rgba(253, 231, 252, 0.745);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}

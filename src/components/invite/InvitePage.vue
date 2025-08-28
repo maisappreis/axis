@@ -44,7 +44,7 @@
           Convites Infantis
         </button>
       </div>
-      <p>Catálogo com todos os convites modelos</p>
+      <p>Escolha o tema do seu convite!</p>
       <div class="page-invites">
         <div v-for="(invite, index) in filteredInvites" :key="index">
           <div class="invite-model" @click="goToInvite(invite.link)">
