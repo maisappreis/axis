@@ -7,7 +7,8 @@
       <div id="star-container"></div>
       <img src="@/assets/images/childlike/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-one" />
       <img src="@/assets/images/childlike/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-two" />
-      <img src="@/assets/images/childlike/LittleFarm/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <!-- <img src="@/assets/images/childlike/LittleFarm/gift.png" alt="Presente" class="gift gift-1" @click="giftModalIsOpen = !giftModalIsOpen" /> -->
+      <img src="@/assets/images/childlike/LittleFarm/gift-2.png" alt="Presente" class="gift gift-2" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h3 class="title">Chá de Bebê da</h3>
       <h1 class="kid-name">Maitê</h1>
@@ -27,7 +28,7 @@
           <span>10:00</span>
         </h2>
       </div>
-      <p style="width: 200px; margin: 10px 0 20px 0;">
+      <p style="width: 200px; margin: 10px 0 10px 0; font-size: 14px;">
         Confirme sua presenta até o dia 22/11
       </p>
 
@@ -54,7 +55,7 @@
             <p>Rua Libero Joaquim Pierini, s/n</p>
             <p>Bairro Coloninha Zilli</p>
             <p>Criciúma</p>
-            <button class="button">
+            <button class="button" @click="openMap">
               Ver no mapa
             </button>
           </div>
@@ -90,7 +91,12 @@ const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
-  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
+  // Criação de links para WhatsApp: https://criar.wa.link/
+  window.open("https://wa.link/wgbqt8", "_blank");
+};
+
+const openMap = () => {
+  window.open('https://maps.app.goo.gl/JTsgAvULJwV7GifCA', '_blank');
 };
 
 onMounted(() => {
@@ -140,7 +146,7 @@ onMounted(() => {
 .circle-text {
   margin: 0 10px;
   width: 120px;
-  height: 80px;
+  height: 60px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -224,12 +230,19 @@ onMounted(() => {
 
 .gift {
   position: absolute;
-  bottom: 10vh;
+  bottom: 8vh;
   left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
+  transform: translateX(-50%);  
   cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+.gift-1 {
+  width: 150px;
+}
+
+.gift-2 {
+  width: 200px;
 }
 
 @keyframes swing {
