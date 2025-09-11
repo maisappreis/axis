@@ -70,6 +70,23 @@ const router = createRouter({
       name: "yellow-bubble",
       component: () => import("@/components/invite/models/corporate/YellowBubble.vue")
     },
+
+    // ---------------- Convites Ativos ----------------
+    {
+      path: "/invite/maite-p",
+      name: "maite-p",
+      component: () => import("@/components/invite/invites/MaiteP.vue")
+    },
+    {
+      path: "/invite/maite-m",
+      name: "maite-m",
+      component: () => import("@/components/invite/invites/MaiteM.vue")
+    },
+    {
+      path: "/invite/maite-g",
+      name: "maite-g",
+      component: () => import("@/components/invite/invites/MaiteG.vue")
+    },
   ]
 });
 
