@@ -63,7 +63,7 @@
                 <strong style="margin-bottom: 6px;">CERIMÔNIA: </strong> 
                 <span>Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC</span>
               </span>
-              <button class="button">
+              <button class="button" @click="openMap">
                 Ver no mapa
               </button>
               <span class="flex-column" style="margin: 15px;">
@@ -110,7 +110,11 @@ const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
-  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
+  window.open("https://wa.link/rgsqsq", "_blank");
+};
+
+const openMap = () => {
+  window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
 };
 
 onMounted(() => {

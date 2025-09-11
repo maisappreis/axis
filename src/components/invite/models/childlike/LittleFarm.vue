@@ -52,9 +52,9 @@
             <h3 style="margin-top: 0;">
               O evento será na NOSSA CASA!
             </h3>
-            <p>Rua Libero Joaquim Pierini, s/n</p>
-            <p>Bairro Coloninha Zilli</p>
-            <p>Criciúma</p>
+            <p>Rua Exemplo de Rua Aqui, 123</p>
+            <p>Bairro Centro</p>
+            <p>Criciúma - SC</p>
             <button class="button" @click="openMap">
               Ver no mapa
             </button>
@@ -92,11 +92,11 @@ const localModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
   // Criação de links para WhatsApp: https://criar.wa.link/
-  window.open("https://wa.link/wgbqt8", "_blank");
+  window.open("https://wa.link/rgsqsq", "_blank");
 };
 
 const openMap = () => {
-  window.open('https://maps.app.goo.gl/JTsgAvULJwV7GifCA', '_blank');
+  window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
 };
 
 onMounted(() => {

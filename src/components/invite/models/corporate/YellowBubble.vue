@@ -29,7 +29,7 @@
       </div>
       <span class="flex-column" style="margin: 10px 0; color: black; z-index: 2;">
         <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
-        <span>Rua José Antônio, 123 - Centro, Criciúma -SC</span>
+        <span>Rua Exemplo de Rua Aqui, 123 - Centro, Criciúma -SC</span>
       </span>
       <div class="diamond"></div>
       <p style="max-width: 300px; margin: 15px 0; color: black">
@@ -58,9 +58,9 @@
             <p class="flex-column align-center">
               <span class="flex-column" style="margin: 5px;">
                 <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
-                <span>Rua José Antônio, 123 - Centro, Criciúma -SC</span>
+                <span>Rua Exemplo de Rua Aqui, 123 - Centro, Criciúma -SC</span>
               </span>
-              <button class="button">
+              <button class="button" @click="openMap">
                 Ver no mapa
               </button>
             </p>
@@ -100,7 +100,11 @@ const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
-  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
+  window.open("https://wa.link/rgsqsq", "_blank");
+};
+
+const openMap = () => {
+  window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
 };
 
 onMounted(() => {
