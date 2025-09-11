@@ -38,7 +38,7 @@
         Ver local do evento
       </button>
       <button class="button" style="margin-top: 7px;"
-        @click="confirmAttendance">
+        @click="confirmModalIsOpen = !confirmModalIsOpen">
         Confirmar presença
       </button>
 
@@ -54,9 +54,26 @@
             </h3>
             <p>Rua Libero Joaquim Pierini, s/n</p>
             <p>Bairro Coloninha Zilli</p>
-            <p>Criciúma</p>
+            <p>Criciúma - SC</p>
             <button class="button" @click="openMap">
               Ver no mapa
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de confirmação de presença -->
+      <div v-if="confirmModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="confirmModalIsOpen = !confirmModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <h3 style="margin-top: 0;">
+              Estamos muito felizes com sua presença!
+            </h3>
+            <button class="button" @click="confirmAttendance">
+              Enviar confirmação por WhatsApp
             </button>
           </div>
         </div>
@@ -94,6 +111,7 @@ defineProps<{
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+const confirmModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
   // Criação de links para WhatsApp: https://criar.wa.link/
