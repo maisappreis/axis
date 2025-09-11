@@ -73,17 +73,17 @@ const router = createRouter({
 
     // ---------------- Convites Ativos ----------------
     {
-      path: "/invite/maite-p",
+      path: "/maite-p",
       name: "maite-p",
       component: () => import("@/components/invite/invites/MaiteP.vue")
     },
     {
-      path: "/invite/maite-m",
+      path: "/maite-m",
       name: "maite-m",
       component: () => import("@/components/invite/invites/MaiteM.vue")
     },
     {
-      path: "/invite/maite-g",
+      path: "/maite-g",
       name: "maite-g",
       component: () => import("@/components/invite/invites/MaiteG.vue")
     },
