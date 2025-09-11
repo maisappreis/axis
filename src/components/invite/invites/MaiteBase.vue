@@ -70,7 +70,7 @@
           </span>
           <div class="modal-content">
             <h3 style="margin-top: 0;">
-              Estamos muito felizes com sua presença!
+              Ficamos muito felizes com sua presença!
             </h3>
             <button class="button" @click="confirmAttendance">
               Enviar confirmação por WhatsApp
