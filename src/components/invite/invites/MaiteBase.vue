@@ -22,14 +22,14 @@
       <!-- Dia e Horário -->
       <div class="flex-row">
         <h2 class="day circle-text">
-          <span>06/12</span>
+          <span>30/11</span>
         </h2>
         <h2 class="time circle-text">
           <span>10:00</span>
         </h2>
       </div>
       <p style="width: 200px; margin: 10px 0 10px 0; font-size: 14px;">
-        Confirme sua presenta até o dia 22/11
+        Confirme sua presenta até o dia 15/11
       </p>
 
       <!-- Botões -->
