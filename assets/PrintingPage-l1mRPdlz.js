@@ -1,1 +1,0 @@
-import{_ as r,c as n,a as e,F as t,o as a}from"./index-B-pvKmav.js";const o={};function l(u,s){return a(),n(t,null,[s[0]||(s[0]=e("h1",null,"Impressões 3D",-1)),s[1]||(s[1]=e("h5",null,"Caso eu ressussite as impressoras",-1))],64)}const m=r(o,[["render",l]]);export{m as default};
