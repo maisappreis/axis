@@ -1,5 +1,6 @@
 <template>
   <div class="page-container">
+    <AxisHeader />
     <div class="page-header">
       <div class="page-title">
         <h1 style="width: 80vw;">Convites Digitais Interativos</h1>
@@ -56,6 +57,7 @@
         </div>
       </div>
     </div>
+    <AxisFooter />
   </div>
 </template>
 
@@ -63,6 +65,8 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { invites } from "@/utils/constants";
+import AxisHeader from "@/components/axis/AxisHeader.vue";
+import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 const router = useRouter();
 const activeFilters = ref<string[]>([]);
@@ -110,6 +114,7 @@ const filteredInvites = computed(() => {
 }
 
 .page-header {
+  margin-top: 30px;
   width: 100vw;
   height: 100vh;
 }
@@ -135,7 +140,7 @@ const filteredInvites = computed(() => {
   background-color: rgb(7, 92, 103);
   color: white;
   width: 100vw;
-  padding: 30px 0;
+  padding: 24px 0;
   margin: 0;
   cursor: pointer;
 }
@@ -181,8 +186,7 @@ button.active {
   flex-wrap: wrap;
   gap: 10px;
   
-  margin: 15px 0;
-  padding: 0 10px;
+  padding: 10px 10px 30px 10px;
 }
 
 .invite-model {

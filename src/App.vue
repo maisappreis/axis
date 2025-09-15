@@ -19,7 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 }
 
 .app-area {

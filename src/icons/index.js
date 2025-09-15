@@ -13,6 +13,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { faRightToBracket, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+// import { faInstagram } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faHeart)
 library.add(faUsers, faCircleUser)
@@ -26,6 +28,7 @@ library.add(faTrashCan)
 library.add(faCheck)
 library.add(faXmark)
 library.add(faCircleInfo, faRightToBracket, faSpinner)
-library.add(faLocationDot)
+library.add(faLocationDot, faBars)
+// library.add(faInstagram)
 
 export { library };

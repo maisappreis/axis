@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: "/",
       name: "axis",
-      component: () => import("@/components/axis3D/AxisPage.vue")
+      component: () => import("@/components/axis/AxisPage.vue")
     },
     {
       path: "/:pathMatch(.*)*",
