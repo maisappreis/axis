@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import AxisHeader from "@/components/axis/AxisHeader.vue";
+import AxisHeader from "../axis/AxisHeader.vue";
 import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 const router = useRouter();
@@ -65,7 +65,7 @@ const goToInstagram = () => {
 </script>
 <style scoped>
 .title {
-  color: #252b37;
+  color: var(--dark-navy-blue);
 }
 
 .services-area {
@@ -89,16 +89,16 @@ const goToInstagram = () => {
   margin: 15px;
   padding: 20px 10px;
 
-  background-color: #333c4d;
+  background-color: var(--light-navy-blue);
   color: white;
   border-radius: 10px;
-  border: 5px solid #333c4d;
+  border: 5px solid var(--light-navy-blue);
   cursor: pointer;
 }
 
 .services:hover {
   background-color: transparent;
-  color: #333c4d;
+  color: var(--light-navy-blue);
   font-weight: bold;
 }
 
@@ -108,7 +108,7 @@ const goToInstagram = () => {
 }
 
 .line {
-  color: #333c4d;
+  color: var(--light-navy-blue);
   border: none;
   height: 3px;
   width: 50%;
@@ -124,8 +124,8 @@ const goToInstagram = () => {
 }
 
 .contact {
-  background-color: #333c4d;
-  border: 3px solid #333c4d;
+  background-color: var(--light-navy-blue);
+  border: 3px solid var(--light-navy-blue);
   color: white;
   border-radius: 10px;
   padding: 10px;
@@ -135,7 +135,7 @@ const goToInstagram = () => {
 
 .contact:hover {
   background-color: transparent;
-  color: #333c4d;
+  color: var(--light-navy-blue);
   font-weight: bold;
 }
 </style>

@@ -26,13 +26,11 @@ const goToPage = (link: string) => router.push(link);
   padding: 30px;
   text-align: left;
   cursor: pointer;
-  background-color: #333c4d;
+  background-color: var(--light-navy-blue);
   color: white;
 }
 
 .option:hover {
-  background-color: #e4e4e4;
-  color: #333c4d;
-  font-weight: bold;
+  background-color: var(--dark-navy-blue);
 }
 </style>

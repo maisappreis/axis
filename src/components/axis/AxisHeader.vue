@@ -26,7 +26,7 @@ const goHomePage = () => router.push("/");
   justify-content: space-between;
   align-items: center;
 
-  background-color: #333c4d;
+  background-color: var(--light-navy-blue);
   width: 100vw;
   height: 60px;
 }

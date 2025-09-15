@@ -59,7 +59,7 @@ import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 .menu {
   background-color: #e4e4e4;
-  color: #252b37;
+  color: var(--dark-navy-blue);
   width: 100vw;
   padding: 24px 0;
   margin: 0;
@@ -67,7 +67,7 @@ import AxisFooter from "@/components/axis/AxisFooter.vue";
 }
 
 .menu:hover {
-  background-color: #252b37;
+  background-color: var(--dark-navy-blue);
   color: white;
 }
 </style>

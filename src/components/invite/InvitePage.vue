@@ -65,7 +65,7 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { invites } from "@/utils/constants";
-import AxisHeader from "@/components/axis/AxisHeader.vue";
+import AxisHeader from "../axis/AxisHeader.vue";
 import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 const router = useRouter();
@@ -111,6 +111,7 @@ const filteredInvites = computed(() => {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: var(--light-gray);
 }
 
 .page-header {
@@ -137,7 +138,7 @@ const filteredInvites = computed(() => {
 }
 
 .menu {
-  background-color: rgb(7, 92, 103);
+  background-color: var(--light-navy-blue);
   color: white;
   width: 100vw;
   padding: 24px 0;
@@ -146,7 +147,7 @@ const filteredInvites = computed(() => {
 }
 
 .menu:hover {
-  background-color: rgb(6, 68, 76);
+  background-color: var(--dark-navy-blue);
 }
 
 .page-filters {
@@ -161,7 +162,7 @@ button {
   margin: 3px 20px;
   padding: 10px;
   width: 250px;
-  background-color: rgb(7, 92, 103);
+  background-color: var(--light-navy-blue);
   color: white;
   font-size: 15px;
   border: none;
@@ -170,13 +171,13 @@ button {
 }
 
 button:hover {
-  background-color: rgb(6, 68, 76);
+  background-color: var(--dark-navy-blue);
 }
 
 button.active {
-  border: 6px solid rgb(7, 92, 103);
+  border: 6px solid var(--light-navy-blue);
   background-color: transparent;
-  color: rgb(7, 92, 103);
+  color: var(--light-navy-blue);
   font-weight: bold;
 }
 
@@ -200,16 +201,16 @@ button.active {
   margin: 15px;
   padding: 20px 10px;
 
-  background-color: rgb(7, 92, 103);
+  background-color: var(--light-navy-blue);
   color: white;
   border-radius: 10px;
-  border: 5px solid rgb(7, 92, 103);
+  border: 5px solid var(--light-navy-blue);
   cursor: pointer;
 }
 
 .invite-model:hover {
   background-color: transparent;
-  color: rgb(7, 92, 103);
+  color: var(--light-navy-blue);
   font-weight: bold;
 }
 

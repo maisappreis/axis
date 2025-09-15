@@ -7,5 +7,13 @@
     --gray-light-color: rgb(228, 228, 228);
     --red-dark-color: rgb(178, 15, 15);
     --red-light-color: rgb(239, 182, 182);
+
+    --light-navy-blue: #333c4d;
+    --dark-navy-blue: #252b37;
+
+    --light-water-green: rgb(7, 92, 103);
+    --dark-water-green: rgb(6, 68, 76);
+
+    --light-gray: #e4e4e4;
   }
   
