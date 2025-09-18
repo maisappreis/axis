@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <img class="logo-img" src="@/assets/images/logo.png" alt="logo" @click="goHomePage">
+    <img class="logo-img" src="@/assets/images/page/logo.png" alt="logo" @click="goHomePage">
   </div>
 </template>
 

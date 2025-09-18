@@ -5,10 +5,15 @@
       <div class="page-title">
         <h1 style="width: 80vw;">Convites Digitais Interativos</h1>
         <h3 style="max-width: 400px">
-          Convites animados com GIFs, vídeos, música, slides de fotos,
+          Convites animados, com fotos,
           dinâmicos, clicáveis, com contável regressiva. <br>
           Dê vida ao seu convite!
         </h3>
+        <!-- <h3 style="max-width: 400px">
+          Convites animados com GIFs, vídeos, música, slides de fotos,
+          dinâmicos, clicáveis, com contável regressiva. <br>
+          Dê vida ao seu convite!
+        </h3> -->
       </div>
       <h3 class="menu" @click="scrollToModels">
         CATÁLOGO
@@ -47,7 +52,12 @@
         
       </div>
       <h3>Escolha o seu tema favorito!</h3>
-      <p>Após escolher o tema, personalizamos o convite para o seu evento.</p>
+      <p style="margin: 5px 15px;">
+        Após escolher o tema, personalizamos o convite para o seu evento.
+      </p>
+      <p style="margin: 0 15px;">
+        Não gostou de nenhum? Criamos algo inteiramente novo, me chame no WhatsApp.
+      </p>
       <div class="page-invites">
         <div v-for="(invite, index) in filteredInvites" :key="index">
           <div class="invite-model" @click="goToInvite(invite.link)">

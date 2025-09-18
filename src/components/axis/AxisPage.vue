@@ -2,9 +2,9 @@
   <div class="app-area">
     <AxisHeader />
     <div style="margin: 70px 0 20px 0;">
-      <h3 class="title">
+      <h2 class="title">
         Nossos Serviços
-      </h3>
+      </h2>
       <div class="services-area">
         <div v-for="(page, index) in pages" :key="index">
           <div class="services" @click="goToPage(page.link)">
@@ -14,9 +14,9 @@
         </div>
       </div>
       <hr class="line">
-      <h3 class="title">
+      <h2 class="title">
         Nossos Contatos
-      </h3>
+      </h2>
       <div class="contact-area">
         <div class="contact" @click="goToInstagram">
           <!-- <font-awesome-icon icon="fa-instagram" /> -->
@@ -46,7 +46,7 @@ const pages = ref<{
   },
   {
     name: "Impressão 3D", link: "/print",
-    src: new URL("@/assets/images/3d-print.jpg", import.meta.url).href,
+    src: new URL("@/assets/images/page/3d-print.jpg", import.meta.url).href,
     alt: "3D print"
   },
 ]);

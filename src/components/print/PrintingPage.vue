@@ -4,10 +4,10 @@
     <div class="page-header">
       <div class="page-title">
         <h1 style="width: 80vw;">Impressões 3D</h1>
-        <h3 style="max-width: 400px">
-          Infelizmente, no momento, não estamos conseguindo pegar novas demandas de impressão 3D.
-          Peço desculpas não poder atender neste momento.
-        </h3>
+        <p class="text">
+          Infelizmente, no momento, não estamos conseguindo pegar novas demandas de impressão 3D. <br>
+          Em breve voltaremos.
+        </p>
       </div>
       <h3 class="menu">
         SOLICITAR ORÇAMENTO
@@ -51,7 +51,7 @@ import AxisFooter from "@/components/axis/AxisFooter.vue";
   margin: 0;
   height: 80vh;
 
-  background-image: url('@/assets/images/3d-print-bg.jpg');
+  background-image: url('@/assets/images/page/3d-print-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,5 +69,10 @@ import AxisFooter from "@/components/axis/AxisFooter.vue";
 .menu:hover {
   background-color: var(--dark-navy-blue);
   color: white;
+}
+
+.text {
+  max-width: 400px;
+  font-size: 20px;
 }
 </style>

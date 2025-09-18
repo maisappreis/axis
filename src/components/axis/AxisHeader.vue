@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="logo-img" src="@/assets/images/logo.png" alt="logo" @click="goHomePage">
+    <img class="logo-img" src="@/assets/images/page/logo.png" alt="logo" @click="goHomePage">
     <font-awesome-icon icon="fa-solid fa-bars" class="icon" @click="showMenu = !showMenu"/>
     <AxisMenu v-if="showMenu" />
   </div>
@@ -39,7 +39,7 @@ const goHomePage = () => router.push("/");
 
 .icon {
   color: white;
-  zoom: 1.5;
+  zoom: 2;
   margin-right: 30px;
   cursor: pointer;
 }
