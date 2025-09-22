@@ -42,7 +42,7 @@
   margin-top: 20px;
   padding-top: 10px;
   text-align: center;
-  width: 50vw;
+  max-width: 70vw;
   height: fit-content; 
 }
 
