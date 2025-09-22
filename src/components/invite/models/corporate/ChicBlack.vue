@@ -218,30 +218,6 @@ onMounted(() => {
   }
 }
 
-/* Presente */
-
-.gift {
-  position: absolute;
-  bottom: 12vh;
-  left: 57%;
-  transform: translateX(-50%);
-  width: 150px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-@keyframes swing {
-  0%   { transform: translateX(-50%) rotate(0deg); }
-  25%  { transform: translateX(-50%) rotate(15deg); }
-  50%  { transform: translateX(-50%) rotate(0deg); }
-  75%  { transform: translateX(-50%) rotate(-15deg); }
-  100% { transform: translateX(-50%) rotate(0deg); }
-}
-
-.gift {
-  animation: swing 2s infinite ease-in-out;
-}
-
 /* Modal */
 
 .modal {

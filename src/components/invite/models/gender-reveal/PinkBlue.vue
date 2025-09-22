@@ -256,7 +256,7 @@ onMounted(() => {
 
 .gift {
   position: absolute;
-  bottom: 15vh;
+  bottom: 8vh;
   left: 51%;
   transform: translateX(-50%);
   width: 200px;
