@@ -28,8 +28,9 @@
         </h2>
       </div>
       <span class="flex-column" style="margin: 10px 0; color: black; z-index: 2;">
-        <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
-        <span>Rua Exemplo de Rua Aqui, 123 - Centro, Criciúma -SC</span>
+        <strong style="margin-bottom: 6px;">Restaurante Apollo IV</strong> 
+        <span>Rua Exemplo de Rua Aqui, 123</span>
+        <span>Centro, Criciúma -SC</span>
       </span>
       <div class="diamond"></div>
       <p style="max-width: 300px; margin: 15px 0; color: black">
@@ -39,13 +40,30 @@
       <!-- Botões -->
       <div class="button-area">
         <button class="button" style="margin-top: 7px;"
-          @click="confirmAttendance">
+          @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
         <button class="button"
           @click="localModalIsOpen = !localModalIsOpen">
           Ver local no mapa
         </button>
+      </div>
+
+      <!-- Modal de confirmação de presença -->
+      <div v-if="confirmModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="confirmModalIsOpen = !confirmModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <h3 style="margin-top: 0;">
+              Ficamos muito felizes com sua presença!
+            </h3>
+            <button class="button" @click="confirmAttendance">
+              Enviar confirmação por WhatsApp
+            </button>
+          </div>
+        </div>
       </div>
       
       <!-- Modal do local do evento -->
@@ -57,30 +75,14 @@
           <div class="modal-content">
             <p class="flex-column align-center">
               <span class="flex-column" style="margin: 5px;">
-                <strong style="margin-bottom: 6px;">Restaurante Apollo </strong> 
-                <span>Rua Exemplo de Rua Aqui, 123 - Centro, Criciúma -SC</span>
+                <strong style="margin-bottom: 15px;">Restaurante Apollo IV</strong> 
+                <span>Rua Exemplo de Rua Aqui, 123</span>
+                <span>Centro, Criciúma -SC</span>
               </span>
               <button class="button" @click="openMap">
                 Ver no mapa
               </button>
             </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal do presente -->
-      <div v-if="giftModalIsOpen" class="modal-overlay">
-        <div class="modal">
-          <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
-            &times;
-          </span>
-          <div class="modal-content">
-            <h4>Sua presença é o nosso maior presente! 🎁</h4>
-            <p>Mas caso queira nos dar um mimo, poderia ser via PIX:</p>
-            <h4>CHAVE_PIX_AQUI</h4>
-            <button class="button">
-              Copiar chave PIX
-            </button>
           </div>
         </div>
       </div>
@@ -96,8 +98,8 @@ import FooterPage from "@/components/invite/FooterPage.vue";
 
 const { makeLittleStars } = useDataUtils();
 
-const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+const confirmModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
   window.open("https://wa.link/rgsqsq", "_blank");
@@ -125,7 +127,7 @@ onMounted(() => {
 
 .title {
   color: black;
-  margin: 5px 0;
+  margin: 0;
   z-index: 2;
 }
 
