@@ -6,17 +6,17 @@
       <div id="star-container"></div>
       <img src="@/assets/images/gender-reveal/heart-1.png" alt="heart" class="heart heart-one" />
       <img src="@/assets/images/gender-reveal/heart-2.png" alt="heart" class="heart heart-two" />
-      <img src="@/assets/images/gender-reveal/gift.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
+      <img src="@/assets/images/gender-reveal/gift-2.png" alt="Presente" class="gift" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h3 class="title">Chá Revelação</h3>
       <h1 class="kid-name">
-        <span class="kid-name girl">Maitê </span>
+        <span class="kid-name girl">Alice </span>
         <span class="kid-name" style="color: black">ou </span>
-        <span class="kid-name boy">Noah</span>
+        <span class="kid-name boy">Ravi</span>
       </h1>
 
       <p class="text">
-        Qual o seu palpite? <br>Venha descobrir com a gente!
+        Qual é o seu palpite? <br>Venha descobrir com a gente!
       </p>
 
       <!-- Dia e Horário -->
@@ -39,15 +39,9 @@
           Ver local do evento
         </button>
         <button class="button" style="margin-top: 7px;"
-          @click="confirmAttendance">
+          @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
-      </div>
-
-      <div style="display: flex; max-width: 350px;">
-        <h4 style="margin: 20px 15px 5px 15px;">
-          Gostaria de presentear?
-        </h4>
       </div>
 
       <!-- Modal do local do evento -->
@@ -65,6 +59,24 @@
             <p>Criciúma - SC</p>
             <button class="button" @click="openMap">
               Ver no mapa
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de confirmação de presença -->
+      <div v-if="confirmModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="confirmModalIsOpen = !confirmModalIsOpen" >
+            &times;
+          </span>
+          <img src="@/assets/gifs/congratulations.gif" alt="congratulations" width="150" height="150">
+          <div class="modal-content" style="margin-top: 0;">
+            <h3 style="margin-top: 0;">
+              Ficamos muito felizes com sua presença!
+            </h3>
+            <button class="button" @click="confirmAttendance">
+              Enviar confirmação por WhatsApp
             </button>
           </div>
         </div>
@@ -97,6 +109,7 @@ const { makeLittleStars, changeBackground } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+const confirmModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
   window.open("https://wa.link/rgsqsq", "_blank");
@@ -201,7 +214,7 @@ onMounted(() => {
   background-color: rgb(125, 125, 125);
 }
 
-/* Peixes se movimentando */
+/* Corações se movimentando */
 
 .heart {
   position: absolute;
@@ -251,7 +264,7 @@ onMounted(() => {
   bottom: 15vh;
   left: 51%;
   transform: translateX(-50%);
-  width: 150px;
+  width: 200px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
