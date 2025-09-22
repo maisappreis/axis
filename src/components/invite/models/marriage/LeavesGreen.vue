@@ -35,11 +35,11 @@
 
       <!-- Botões -->
       <div class="button-area">
-        <button class="button" style="margin-top: 7px;"
+        <button class="button" style="margin-top: 7px; width: 220px;"
           @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
-        <button class="button"
+        <button class="button" style="width: 220px;"
           @click="localModalIsOpen = !localModalIsOpen">
           Ver local do evento
         </button>
@@ -188,7 +188,6 @@ onMounted(() => {
 .button {
   margin: 10px 0;
   padding: 10px;
-  width: 220px;
   background-color: rgb(140, 140, 88);
   color: white;
   font-size: 15px;
@@ -270,7 +269,7 @@ onMounted(() => {
   bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
+  width: 200px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }

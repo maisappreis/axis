@@ -39,11 +39,11 @@
 
       <!-- Botões -->
       <div class="button-area">
-        <button class="button" style="margin-top: 7px;"
+        <button class="button" style="margin-top: 7px; width: 220px;"
           @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
-        <button class="button"
+        <button class="button" style="width: 220px;"
           @click="localModalIsOpen = !localModalIsOpen">
           Ver local no mapa
         </button>
@@ -155,7 +155,6 @@ onMounted(() => {
 .button {
   margin: 10px 0;
   padding: 10px;
-  width: 220px;
   background-color: rgb(132, 132, 132);
   color: white;
   font-size: 15px;
