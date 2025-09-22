@@ -36,7 +36,7 @@
           Ver local do evento
         </button>
         <button class="button" style="margin-top: 7px;"
-          @click="confirmAttendance">
+          @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
       </div>
@@ -57,6 +57,24 @@
             <p>Criciúma - SC</p>
             <button class="button" @click="openMap">
               Ver no mapa
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de confirmação de presença -->
+      <div v-if="confirmModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="confirmModalIsOpen = !confirmModalIsOpen" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <img src="@/assets/gifs/congratulations.gif" alt="congratulations" width="150" height="150">
+            <h3 style="margin-top: 0;">
+              Ficamos muito felizes com sua presença!
+            </h3>
+            <button class="button" @click="confirmAttendance">
+              Enviar confirmação por WhatsApp
             </button>
           </div>
         </div>
@@ -89,6 +107,7 @@ const { makeLittleStars, changeBackground } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+const confirmModalIsOpen = ref(false);
 
 const confirmAttendance = () => {
   window.open("https://wa.link/rgsqsq", "_blank");
@@ -236,7 +255,7 @@ onMounted(() => {
   bottom: 12vh;
   left: 57%;
   transform: translateX(-50%);
-  width: 150px;
+  width: 220px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }

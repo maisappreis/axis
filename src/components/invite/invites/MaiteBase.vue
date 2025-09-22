@@ -7,7 +7,6 @@
       <div id="star-container"></div>
       <img src="@/assets/images/childlike/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-one" />
       <img src="@/assets/images/childlike/LittleFarm/cloud.png" alt="cloud" class="cloud cloud-two" />
-      <!-- <img src="@/assets/images/childlike/LittleFarm/gift.png" alt="Presente" class="gift gift-1" @click="giftModalIsOpen = !giftModalIsOpen" /> -->
       <img src="@/assets/images/childlike/LittleFarm/gift-2.png" alt="Presente" class="gift gift-2" @click="giftModalIsOpen = !giftModalIsOpen" />
 
       <h3 class="title">Chá de Bebê da</h3>
@@ -69,6 +68,7 @@
             &times;
           </span>
           <div class="modal-content">
+            <img src="@/assets/gifs/congratulations.gif" alt="congratulations" width="150" height="150">
             <h3 style="margin-top: 0;">
               Ficamos muito felizes com sua presença!
             </h3>
