@@ -1,0 +1,1 @@
+import{I as e}from"./MaiteBase-C7837TC4.js";import{d as t,i as o,o as r}from"./index-BxE9d_Qh.js";import"./gift-2-DPxGAIEM.js";import"./congratulations-D44-_Jyf.js";import"./FooterPage-BuQqSzXz.js";const f=t({__name:"MaiteG",setup(a){return(i,p)=>(r(),o(e,{giftSize:"G"}))}});export{f as default};
