@@ -99,23 +99,17 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useDataUtils } from "@/utils/utils";
+import { useMethodsUtils } from "@/utils/utils";
 import FooterPage from "@/components/invite/FooterPage.vue";
 
-const { makeLittleStars, changeBackground } = useDataUtils();
+const {
+  makeLittleStars, changeBackground,
+  confirmAttendance, openMap
+ } = useMethodsUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 const confirmModalIsOpen = ref(false);
-
-const confirmAttendance = () => {
-  // Criação de links para WhatsApp: https://criar.wa.link/
-  window.open("https://wa.link/rgsqsq", "_blank");
-};
-
-const openMap = () => {
-  window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
-};
 
 onMounted(() => {
   changeBackground();

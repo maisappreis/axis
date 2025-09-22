@@ -85,7 +85,7 @@
                 <span>Rodovia Endereço de Exemplo, 1000</span>
                 <span>Centro - Criciúma/SC</span>
               </span>
-              <button class="button">
+              <button class="button" @click="openMap">
                 Ver no mapa
               </button>
             </p>
@@ -121,23 +121,18 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useDataUtils } from "@/utils/utils";
+import { useMethodsUtils } from "@/utils/utils";
 import FooterPage from "@/components/invite/FooterPage.vue";
 
-const { makeLittleStars, changeBackground } = useDataUtils();
+const {
+  makeLittleStars, changeBackground,
+  confirmAttendance, openMap
+ } = useMethodsUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
 const confirmModalIsOpen = ref(false);
 const showMessage = ref(false);
-
-const confirmAttendance = () => {
-  window.open("https://wa.link/rgsqsq", "_blank");
-};
-
-const openMap = () => {
-  window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
-};
 
 const copyKey = () => {
   showMessage.value = true;

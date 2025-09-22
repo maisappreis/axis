@@ -1,4 +1,4 @@
-export function useDataUtils() {
+export function useMethodsUtils() {
   const makeLittleStars = () => {
     const container = document.getElementById("star-container");
     if (!container) return;
@@ -44,8 +44,20 @@ export function useDataUtils() {
     }, 3000); // Altera a cada 3 segundos
   };
 
+  const confirmAttendance = () => {
+    // Criação de links para WhatsApp: https://criar.wa.link/
+    window.open("https://wa.link/rgsqsq", "_blank");
+  };
+
+
+  const openMap = () => {
+    window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
+  };
+
   return {
     makeLittleStars,
-    changeBackground
+    changeBackground,
+    confirmAttendance,
+    openMap
   };
 };

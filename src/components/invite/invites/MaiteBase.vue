@@ -100,10 +100,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useDataUtils } from "@/utils/utils";
+import { useMethodsUtils } from "@/utils/utils";
 import FooterPage from "@/components/invite/FooterPage.vue";
 
-const { makeLittleStars, changeBackground } = useDataUtils();
+const { makeLittleStars, changeBackground } = useMethodsUtils();
 
 defineProps<{
   giftSize: string;
