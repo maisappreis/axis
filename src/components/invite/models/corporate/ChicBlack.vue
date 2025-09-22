@@ -30,7 +30,7 @@
       <span class="flex-column" style="margin: 10px 0; color: rgb(215, 215, 215);">
         <strong style="margin-bottom: 6px;">Restaurante Apollo IV</strong> 
         <span>Rua Exemplo de Rua Aqui, 123</span>
-        <span>Centro, Criciúma -SC</span>
+        <span>Centro, Criciúma - SC</span>
       </span>
       <div class="diamond"></div>
       <p style="max-width: 300px; margin: 15px 0; color: white">
@@ -77,7 +77,7 @@
               <span class="flex-column" style="margin: 5px;">
                 <strong style="margin-bottom: 15px;">Restaurante Apollo IV</strong>
                 <span>Rua Exemplo de Rua Aqui, 123</span>
-                <span>Centro, Criciúma -SC</span>
+                <span>Centro, Criciúma - SC</span>
               </span>
               <button class="button" @click="openMap">
                 Ver no mapa

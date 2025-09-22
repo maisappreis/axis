@@ -36,7 +36,7 @@
       <!-- Botões -->
       <div class="button-area">
         <button class="button" style="margin-top: 7px;"
-          @click="confirmAttendance">
+          @click="confirmModalIsOpen = !confirmModalIsOpen">
           Confirmar presença
         </button>
         <button class="button"
@@ -45,10 +45,22 @@
         </button>
       </div>
 
-      <div style="display: flex; max-width: 350px;">
-        <h4 style="margin: 20px 15px 10px 15px;z-index: 2;">
-          Gostaria de nos presentear?
-        </h4>
+      <!-- Modal de confirmação de presença -->
+      <div v-if="confirmModalIsOpen" class="modal-overlay">
+        <div class="modal">
+          <span class="close" @click="confirmModalIsOpen = !confirmModalIsOpen;" >
+            &times;
+          </span>
+          <div class="modal-content">
+            <img src="@/assets/gifs/congratulations.gif" alt="congratulations" width="150" height="150">
+            <h3 style="margin-top: 0;">
+              Ficamos muito felizes com sua presença!
+            </h3>
+            <button class="button" @click="confirmAttendance">
+              Enviar confirmação por WhatsApp
+            </button>
+          </div>
+        </div>
       </div>
       
       <!-- Modal do local do evento -->
@@ -60,15 +72,18 @@
           <div class="modal-content">
             <p class="flex-column align-center">
               <span class="flex-column" style="margin: 5px;">
-                <strong style="margin-bottom: 6px;">CERIMÔNIA: </strong> 
-                <span>Igreja Nosssa Senhora, 123 - Centro, Criciúma -SC</span>
+                <strong style="margin-bottom: 15px;">CERIMÔNIA: </strong> 
+                <span>Igreja Nosssa Senhora, 123</span>
+                <span>Centro - Criciúma/SC</span>
               </span>
               <button class="button" @click="openMap">
                 Ver no mapa
               </button>
               <span class="flex-column" style="margin: 15px;">
-                <strong style="margin-bottom: 6px;">RECEPÇÃO:</strong> Centro de Eventos Luz
-                Rodovia das Amoras, 1000
+                <strong style="margin-bottom: 15px;">RECEPÇÃO:</strong>
+                <span>Centro de Eventos Luz</span>
+                <span>Rodovia Endereço de Exemplo, 1000</span>
+                <span>Centro - Criciúma/SC</span>
               </span>
               <button class="button">
                 Ver no mapa
@@ -84,13 +99,18 @@
           <span class="close" @click="giftModalIsOpen = !giftModalIsOpen" >
             &times;
           </span>
-          <div class="modal-content">
+          <div class="modal-content ">
             <h4>Sua presença é o nosso maior presente! 🎁</h4>
             <p>Mas caso queira nos dar um mimo, poderia ser via PIX:</p>
             <h4>CHAVE_PIX_AQUI</h4>
-            <button class="button">
-              Copiar chave PIX
-            </button>
+            <div class="flex-column align-center justify-center">
+              <button class="button" @click="copyKey">
+                Copiar chave PIX
+              </button>
+              <span v-if="showMessage" style="font-size: 15px; color: red">
+                Chave copiada!
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -108,6 +128,8 @@ const { makeLittleStars, changeBackground } = useDataUtils();
 
 const giftModalIsOpen = ref(false);
 const localModalIsOpen = ref(false);
+const confirmModalIsOpen = ref(false);
+const showMessage = ref(false);
 
 const confirmAttendance = () => {
   window.open("https://wa.link/rgsqsq", "_blank");
@@ -116,6 +138,10 @@ const confirmAttendance = () => {
 const openMap = () => {
   window.open('https://maps.app.goo.gl/2YUDsPEY4ieYZr6j7', '_blank');
 };
+
+const copyKey = () => {
+  showMessage.value = true;
+}
 
 onMounted(() => {
   changeBackground();
@@ -235,10 +261,10 @@ onMounted(() => {
 
 .gift {
   position: absolute;
-  bottom: 10vh;
+  bottom: 12vh;
   left: 52%;
   transform: translateX(-50%);
-  width: 150px;
+  width: 220px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
