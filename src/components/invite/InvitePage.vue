@@ -206,7 +206,7 @@ button.active {
   justify-content: center;
   align-items: center;
 
-  width: 260px;
+  width: 225px;
   height: 320px;
   margin: 15px;
   padding: 20px 10px;
