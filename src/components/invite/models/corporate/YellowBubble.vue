@@ -19,7 +19,7 @@
         Somos gratos a todos os nossos colaboradores que diariámente dão suporte a nossa organização.
         Convidamos você a celebrar os 10 anos do nosso negócio.
       </p>
-      <div class="diamond"></div>
+      <!-- <div class="diamond"></div> -->
 
       <!-- Dia e Horário -->
       <div class="flex-row">
