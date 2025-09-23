@@ -46,6 +46,7 @@ export function useMethodsUtils() {
 
   const confirmAttendance = () => {
     // Criação de links para WhatsApp: https://criar.wa.link/
+    // `https://wa.me/${props.phone}?text=${encodeURIComponent(props.text)}`;
     window.open("https://wa.link/rgsqsq", "_blank");
   };
 

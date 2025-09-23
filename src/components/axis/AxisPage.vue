@@ -14,17 +14,9 @@
         </div>
       </div>
       <hr class="line">
-      <h2 class="title">
-        Nossos Contatos
-      </h2>
-      <div class="contact-area">
-        <div class="contact" @click="goToInstagram">
-          <!-- <font-awesome-icon icon="fa-instagram" /> -->
-          Instagram
-        </div>
-        <div class="contact" @click="goToWhatsApp">WhatsApp</div>
-      </div>
     </div>
+    <AxisWhatsApp />
+    <AxisInstagram />
     <AxisFooter />
   </div>
 </template>
@@ -33,6 +25,8 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import AxisHeader from "../axis/AxisHeader.vue";
+import AxisWhatsApp from "@/components/axis/AxisWhatsApp.vue";
+import AxisInstagram from "@/components/axis/AxisInstagram.vue";
 import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 const router = useRouter();
@@ -53,16 +47,8 @@ const pages = ref<{
 
 const goToPage = (link: string) => router.push(link);
 
-const goToWhatsApp = () => {
-  // Criação de links para WhatsApp: https://criar.wa.link/
-  window.open("https://www.cutt.ly/WhatsApp-Axis3D", "_blank");
-};
-
-const goToInstagram = () => {
-  window.open("https://www.instagram.com/axis3d_impressao3d/", "_blank");
-};
-
 </script>
+
 <style scoped>
 .title {
   color: var(--dark-navy-blue);

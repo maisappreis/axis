@@ -52,10 +52,10 @@
         
       </div>
       <h3>Escolha o seu tema favorito!</h3>
-      <p style="margin: 5px 15px;">
+      <p style="margin: 5px 20px;">
         Após escolher o tema, personalizamos o convite para o seu evento.
       </p>
-      <p style="margin: 0 15px;">
+      <p style="margin: 0 20px;">
         Não gostou de nenhum? Criamos algo inteiramente novo, me chame no WhatsApp.
       </p>
       <div class="page-invites">
@@ -67,6 +67,11 @@
         </div>
       </div>
     </div>
+    <AxisWhatsApp
+      phone="5548996030183"
+      text="Olá, gostaria de mais informações sobre os convites digitais iterativos."
+      label="invites"
+    />
     <AxisFooter />
   </div>
 </template>
@@ -76,6 +81,7 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { invites } from "@/utils/constants";
 import AxisHeader from "../axis/AxisHeader.vue";
+import AxisWhatsApp from "@/components/axis/AxisWhatsApp.vue";
 import AxisFooter from "@/components/axis/AxisFooter.vue";
 
 const router = useRouter();
