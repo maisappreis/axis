@@ -5,15 +5,10 @@
       <div class="page-title">
         <h1 style="width: 80vw;">Convites Digitais Interativos</h1>
         <h3 style="max-width: 400px">
-          Convites animados, com fotos,
+          Convites animados, com GIFs, fotos,
           dinâmicos, clicáveis, com contável regressiva. <br>
           Dê vida ao seu convite!
         </h3>
-        <!-- <h3 style="max-width: 400px">
-          Convites animados com GIFs, vídeos, música, slides de fotos,
-          dinâmicos, clicáveis, com contável regressiva. <br>
-          Dê vida ao seu convite!
-        </h3> -->
       </div>
       <h3 class="menu" @click="scrollToModels">
         CATÁLOGO
@@ -21,7 +16,8 @@
     </div>
     
     <div id="models-section" style="height: 90vh;">
-      <h1 style="width: 100vw;">Nossos modelos</h1>
+      <hr class="line">
+      <h1>Nossos modelos</h1>
       <span>Filtre por:</span>
       <div class="page-filters">
         <button 
@@ -56,7 +52,7 @@
         Após escolher o tema, personalizamos o convite para o seu evento.
       </p>
       <p style="margin: 0 20px;">
-        Não gostou de nenhum? Criamos algo inteiramente novo, me chame no WhatsApp.
+        Não gostou de nenhum? Criamos algo inteiramente novo, chame no WhatsApp.
       </p>
       <div class="page-invites">
         <div v-for="(invite, index) in filteredInvites" :key="index">
@@ -133,7 +129,7 @@ const filteredInvites = computed(() => {
 .page-header {
   margin-top: 30px;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 .page-title {
@@ -233,5 +229,16 @@ button.active {
 .model-img {
   height: 100%;
   width: 100%;
+}
+
+
+.line {
+  color: var(--light-navy-blue);
+  border: none;
+  height: 3px;
+  width: 30%;
+  background-color: #333;
+  margin: 40px auto;
+  border-radius: 5px;
 }
 </style>

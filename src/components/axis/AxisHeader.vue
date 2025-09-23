@@ -39,8 +39,8 @@ const goHomePage = () => router.push("/");
 
 .icon {
   color: white;
-  zoom: 2;
-  margin-right: 30px;
+  zoom: 2.5;
+  margin-right: 15px;
   cursor: pointer;
 }
 </style>
